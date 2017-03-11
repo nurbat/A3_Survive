@@ -1,3 +1,4 @@
+#include "\survarium_respawn\survarium_respawn_config.sqf";
 private ['_code', '_function', '_file'];
 {
     _code = '';
@@ -10,5 +11,6 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
-	['survarium_player_load', 'survarium_respawn\functions\survarium_player_load.sqf']
+	['survarium_respawn_load', 'survarium_respawn\functions\survarium_respawn_load.sqf'],
+	['survarium_respawn_inventory', 'survarium_respawn\functions\survarium_respawn_inventory.sqf']
 ];

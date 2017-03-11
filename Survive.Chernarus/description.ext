@@ -74,7 +74,8 @@ class CfgRemoteExec
         mode = 1;
         jip = 0;
 		class bis_fnc_execvm { allowedTargets=2; };
-		class survarium_player_load { allowedTargets=2; };
+		class survarium_respawn_load { allowedTargets=2; };
+		class survarium_core_player_update { allowedTargets=2; };
     };
 
     class Commands
