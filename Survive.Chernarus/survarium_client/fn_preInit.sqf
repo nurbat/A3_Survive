@@ -1,4 +1,4 @@
-private ['_code', '_function', '_file'];
+/*private ['_code', '_function', '_file'];
 {
     _code = '';
     _function = _x select 0;
@@ -10,10 +10,11 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
-	['survarium_client_load', 'functions\survarium_client_load.sqf'],
-	['survarium_client_save', 'functions\survarium_client_save.sqf'],
-	['survarium_client_respawn', 'functions\survarium_client_respawn.sqf']
+	['survarium_client_load', '/survarium_client/functions/survarium_client_load.sqf'],
+	['survarium_client_save', '/survarium_client/functions/survarium_client_save.sqf'],
+	['survarium_client_respawn', '/functions/survarium_client_respawn.sqf']
 ];
+*/
 if (isServer) then {
 
 }else
