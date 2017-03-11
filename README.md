@@ -1,7 +1,8 @@
 # arma3_survarium_mode
-@Survarium_Server => @SRV_Server
-@Survarium_Client => @SRV_Client
-
+<span>
+<p>@Survarium_Server => @SRV_Server</p>
+<p>@Survarium_Client => @SRV_Client</p>
+</span>
 #MODULES:
 <span>
 <p>@SRV_DB = SQL Function (Connect/Insert/Select/Update/Delete)</p>
