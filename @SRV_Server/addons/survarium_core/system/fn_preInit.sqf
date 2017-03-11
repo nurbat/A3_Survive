@@ -10,6 +10,7 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
+	['survarium_core_player_delete', 'survarium_core\functions\survarium_core_player_delete.sqf'],
 	['survarium_core_player_create', 'survarium_core\functions\survarium_core_player_create.sqf'],
 	['survarium_core_player_exist', 'survarium_core\functions\survarium_core_player_exist.sqf'],
 	['survarium_core_player_load', 'survarium_core\functions\survarium_core_player_load.sqf'],
