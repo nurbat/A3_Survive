@@ -3,10 +3,12 @@
 @Survarium_Client => @SRV_Client
 
 #MODULES:
-<b> test</b>
-@SRV_DB = SQL Function (Connect/Insert/Select/Update/Delete)\n
-@SRV_CORE = Main library Survarium mode (Main Functions)
-@SRV_SPAWN = Functions respawn player on map
-
+<span>
+<p>@SRV_DB = SQL Function (Connect/Insert/Select/Update/Delete)</p>
+<p>@SRV_CORE = Main library Survarium mode (Main Functions)</p>
+<p>@SRV_SPAWN = Functions respawn player on map</p>
+</span>
 #DIRS:
-..\@SRV_Server\optional_mods (Другие варианты модулей, с разными игровыми возможностями)
+<span>
+<p>..\@SRV_Server\optional_mods (Другие варианты модулей, с разными игровыми возможностями)</p>
+</span>
