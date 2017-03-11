@@ -3,7 +3,7 @@
 @Survarium_Client => @SRV_Client
 
 #MODULES:
-@SRV_DB = SQL Function (Connect/Insert/Select/Update/Delete)
+@SRV_DB = SQL Function (Connect/Insert/Select/Update/Delete)\n
 @SRV_CORE = Main library Survarium mode (Main Functions)
 @SRV_SPAWN = Functions respawn player on map
 
