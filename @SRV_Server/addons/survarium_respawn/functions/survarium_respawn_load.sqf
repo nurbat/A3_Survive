@@ -19,7 +19,7 @@ if (_uid Call survarium_core_player_exist) then {
 	_position = selectRandom spawnPoint;
 	_player setPos [(_position select 0) + random (_position select 2), (_position select 1) + random (_position select 2), spawnHeight];
 	_player setDamage 0;//HEALTH Player
-
+	sleep 5;
 	_player call survarium_core_player_update;
 	_player setVariable ["loadedIn", true, true];
 	//uiSleep 2;
