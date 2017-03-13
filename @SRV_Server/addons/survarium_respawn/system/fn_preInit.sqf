@@ -11,6 +11,7 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
+	['survarium_respawn_first', 'survarium_respawn\functions\survarium_respawn_first.sqf'],
 	['survarium_respawn_load', 'survarium_respawn\functions\survarium_respawn_load.sqf'],
 	['survarium_respawn_inventory', 'survarium_respawn\functions\survarium_respawn_inventory.sqf']
 ];

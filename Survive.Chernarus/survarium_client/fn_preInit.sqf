@@ -10,16 +10,15 @@
 }
 forEach 
 [
-	['survarium_client_load', '/survarium_client/functions/survarium_client_load.sqf'],
-	['survarium_client_save', '/survarium_client/functions/survarium_client_save.sqf'],
-	['survarium_client_respawn', '/functions/survarium_client_respawn.sqf']
+	['survarium_client_load', 'survarium_client/functions/survarium_client_load.sqf'],
+	['survarium_client_save', 'survarium_client/functions/survarium_client_save.sqf'],
+	['survarium_client_respawn', 'survarium_client/functions/survarium_client_respawn.sqf']
 ];
 */
 if (isServer) then {
 
 }else
 {
-	ExecVM "functions\survarium_client_save.sqf";
-	ExecVM "functions\survarium_client_load.sqf";
-	ExecVM "functions\survarium_client_respawn.sqf";
+	//ExecVM "functions\survarium_client_load.sqf";
+	//ExecVM "functions\survarium_client_respawn.sqf";
 };

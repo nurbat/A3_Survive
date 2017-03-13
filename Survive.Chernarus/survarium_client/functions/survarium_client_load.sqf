@@ -7,4 +7,5 @@ cutText ["Loading in...","BLACK",1];
 	cutText ["","plain",1];
 	sleep 5;
 	player allowDamage true;
+	player remoteExec ["survarium_core_player_update", 2];
 };
