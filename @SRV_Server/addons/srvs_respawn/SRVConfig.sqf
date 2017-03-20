@@ -1,6 +1,6 @@
 ﻿spawnDebug = true;
 saveDelay = 300; // Seconds 60 * 5 Min = 300
-spawnHeight = 0; //0 - disabled
+spawnHeight = 1000; //0 - disabled
 spawnPoint = [
 	[1740, 2220, 300],
 	[3660, 2450, 500],
@@ -15,6 +15,7 @@ spawnPoint = [
 ];
 
 loadOut = [
+	"B_Parachute",
 	"U_B_CombatUniform_mcam",
 	"srifle_EBR_ARCO_pointer_snds_F",
 	"20Rnd_762x51_Mag",

@@ -1,4 +1,4 @@
-params ["_id", "_uid", "_name", "_jip", "_owner"];
+params ["_player"];
 
     _position = (selectRandom spawnPoint) Call SRVServer_util_circle;
 	[[_position, spawnHeight], { 
@@ -17,15 +17,9 @@ params ["_id", "_uid", "_name", "_jip", "_owner"];
         player setPosASL [(_position select 0), (_position select 1), spawnHeight];
 
         player setVariable ["loadedIn", true, true];
-   }, _owner] Call SRVServer_core_exec;
+   }, owner _player] Call SRVServer_core_exec;
 
-//WAIT LOAD A USER
-waitUntil { player getVariable ["loadedIn", false] };
-{
-    _player = _x;
-    if(name _x == _name) then {
-        _x Call SRVServer_spawn_equip;
-    };
-} forEach allPlayers;
+waitUntil { _player getVariable ["loadedIn", false] };
+_player Call SRVServer_spawn_equip;
 [_player, getPlayerUID _player] Call SRVServer_core_player_update;
-if(spawnDebug) then { diag_log format["[SRVS-RESPAWN] Finish: %1", _name]; };
+if(spawnDebug) then { diag_log format["[SRVS-RESPAWN] Finish: %1", name _player]; };

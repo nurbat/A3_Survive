@@ -1,5 +1,5 @@
 _data = _this select 0;
-_owner = _this select 1;
+_player = _this select 1;
 
 [_data, { 
     removeAllWeapons player;
@@ -187,5 +187,5 @@ _owner = _this select 1;
     };
 
 	player setVariable ["loadedIn", true, true];//STATUS IS LOADED
-}, _owner] Call SRVServer_core_exec;
+}, owner _player] Call SRVServer_core_exec;
 

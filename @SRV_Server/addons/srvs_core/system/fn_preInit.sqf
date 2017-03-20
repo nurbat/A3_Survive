@@ -15,7 +15,6 @@ forEach
 	['SRVServer_core_getMagazine', 'srvs_core\fnc\SRVServer_core_getMagazine.sqf'],
 	['SRVServer_core_getHitPoint', 'srvs_core\fnc\SRVServer_core_getHitPoint.sqf'],
 	['SRVServer_core_getLoadedMagazines', 'srvs_core\fnc\SRVServer_core_getLoadedMagazines.sqf'],
-	['SRVServer_core_respawn', 'srvs_core\fnc\SRVServer_core_respawn.sqf'],
 	['SRVServer_core_killed', 'srvs_core\fnc\SRVServer_core_killed.sqf'],
 	['SRVServer_core_esc_menu', 'srvs_core\fnc\SRVServer_core_esc_menu.sqf'],
 	['SRVServer_core_disconnect', 'srvs_core\fnc\SRVServer_core_disconnect.sqf'],
