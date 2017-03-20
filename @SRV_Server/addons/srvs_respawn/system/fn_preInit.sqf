@@ -11,8 +11,10 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
+	['SRVServer_spawn_equip', 'srvs_respawn\fnc\SRVServer_spawn_equip.sqf'],
+	['SRVServer_spawn_screen', 'srvs_respawn\fnc\SRVServer_spawn_screen.sqf'],
 	['SRVServer_spawn_died', 'srvs_respawn\fnc\SRVServer_spawn_died.sqf'],
-	['SRVServer_spawn_respawn', 'srvs_respawn\fnc\SRVServer_spawn_respawn.sqf'],
+	['SRVServer_spawn_createBambi', 'srvs_respawn\fnc\SRVServer_spawn_createBambi.sqf'],
 	['SRVServer_spawn_init', 'srvs_respawn\fnc\SRVServer_spawn_init.sqf'],
 	['SRVServer_spawn_load_user', 'srvs_respawn\fnc\SRVServer_spawn_load_user.sqf'],
 	['SRVServer_spawn_disconnect', 'srvs_respawn\fnc\SRVServer_spawn_disconnect.sqf'],

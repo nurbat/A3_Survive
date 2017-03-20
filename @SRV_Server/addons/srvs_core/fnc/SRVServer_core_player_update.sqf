@@ -44,4 +44,4 @@ vest _player,//Vest %27
 
 _uid];//UID %31
 if(showDebug) then { diag_log format["[SRVS-CORE] %1", _updatestr]; };
-[0, _updatestr] call SRVServer_db_query;
+[2, _updatestr] call SRVServer_db_query;

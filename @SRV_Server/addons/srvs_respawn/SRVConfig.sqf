@@ -1,6 +1,4 @@
 ﻿spawnDebug = true;
-syncInventory = false;//Синхранизировать инвентарь при открытии?
-saveInventory = false;//Сохранять инвентарь при закоытии?
 saveDelay = 300; // Seconds 60 * 5 Min = 300
 spawnHeight = 0; //0 - disabled
 spawnPoint = [
@@ -16,17 +14,17 @@ spawnPoint = [
 	[12000, 9100, 500]
 ];
 
-spawnWeapon_Rifle = "";
-spawnWeapon_Rpg = "";
-spawnWeapon_Pistol = "";
+loadOut = [
+	"U_B_CombatUniform_mcam",
+	"srifle_EBR_ARCO_pointer_snds_F",
+	"20Rnd_762x51_Mag",
+	"20Rnd_762x51_Mag",
+	"20Rnd_762x51_Mag",
+	"ItemMap",
+	"ItemCompass",
+	"ItemWatch"
+];
 
-inventoryBody = [];
-
-spawnUniform = "";
-inventoryUniform = [];
-
-spawnVest = "";
-inventoryVest = [];
-
-spawnBackpack = "";
-inventoryBackpack = [];
+//DONT WORKED
+syncInventory = false;//Синхранизировать инвентарь при открытии?
+saveInventory = false;//Сохранять инвентарь при закоытии?

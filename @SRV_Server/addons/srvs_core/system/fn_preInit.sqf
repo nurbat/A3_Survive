@@ -27,3 +27,4 @@ forEach
 	['SRVServer_core_player_load', 'srvs_core\fnc\SRVServer_core_player_load.sqf'],
 	['SRVServer_core_player_update', 'srvs_core\fnc\SRVServer_core_player_update.sqf']
 ];
+

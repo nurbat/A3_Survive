@@ -1,24 +1,23 @@
 class CfgPatches
 {
-	class SRVCore
+	class SRVUtil
 	{
 		projectName="Survarium Mode";
 		author="Hummer";
 		version="0.001";
-		requiredAddons[] = { "SRVDB" };
+		requiredAddons[] = { };
 		units[] = {};
 	};
 };
 
 class CfgFunctions
 {
-	class srvs_core
+	class srvs_util
 	{
 		class system
 		{
-			file = "\srvs_core\system";
+			file = "\srvs_util\system";
 			class preInit {preInit = 1;};
-			class postInit {postInit = 1;};
 		};
 	};
 };
