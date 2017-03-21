@@ -1,1 +1,0 @@
-[] spawn { player sideChat "Hello world! 2" };

@@ -74,11 +74,7 @@ class CfgRemoteExec
         mode = 1;
         jip = 0;
 		class bis_fnc_execvm { allowedTargets=2; };
-		class srvserver_core_player_update { allowedTargets=2; };
-		class srvserver_core_respawn { allowedTargets=2; };
-		class srvserver_core_killed { allowedTargets=2; };
-		class SRVServer_spawn_init { allowedTargets=2; };
-		
+		class SRVServer_core_execClient { allowedTargets=2; };		
     };
 
     class Commands
