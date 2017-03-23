@@ -13,7 +13,7 @@ if (_result == "") then
 };
 diag_log "---------------------------------------------------------------------";
 diag_log "---------------------------------------------------------------------";
-["Database", "SQL", "mysql.ini"] execVM "srvs_db\fnc\SRVServer_db_init.sqf";
+["Database", "SQL_CUSTOM", "mysql.ini"] execVM "srvs_db\fnc\SRVServer_db_init.sqf";
 
 private ['_code', '_function', '_file'];
 

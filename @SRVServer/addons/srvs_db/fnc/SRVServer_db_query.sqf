@@ -12,8 +12,6 @@ Params:
 private ["_quer", "_array"];
 params ["_mode", "_query"];
 
-if((isNil { Call extDB_SQL_CUSTOM_ID })) exitWith {};
-
 _q = format["%1:%2:%3", _mode, call extDB_SQL_CUSTOM_ID, _query];
 _quer = "extDB3" callExtension _q;
 _array = call compile _quer;

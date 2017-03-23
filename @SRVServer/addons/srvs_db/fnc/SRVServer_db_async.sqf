@@ -13,8 +13,6 @@
 
 private["_queryStmt","_queryResult","_key","_mode","_return","_loop"];
 
-if((isNil { Call extDB_SQL_CUSTOM_ID })) exitWith {};
-
 if (!params [
 	["_queryStmt", "", [""]],
 	["_mode", 0, [0]]

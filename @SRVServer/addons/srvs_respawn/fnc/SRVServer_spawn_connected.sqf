@@ -1,6 +1,4 @@
-params ["_player"];
-
-(owner _player) Call SRVServer_spawn_screen;
+(owner _this) Call SRVServer_spawn_screen;
 
 [[], { 
     //Player is Respawn
@@ -14,5 +12,5 @@ params ["_player"];
     [] spawn {
         [player, { _this Call SRVServer_spawn_init; } ] remoteExecCall ["SRVServer_core_execClient", 2];
     };
-}, owner _player] Call SRVServer_core_execServer;
+}, owner _this] Call SRVServer_core_execServer;
 
