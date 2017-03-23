@@ -1,5 +1,5 @@
 params ["_unit_new", "_unit_old"];
-if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => EntityRespawned] %1", _name]; };
+if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => EntityRespawned] %1", name _unit_new]; };
 
 //Run CallBack functions
 {

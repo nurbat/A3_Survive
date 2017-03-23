@@ -1,5 +1,5 @@
 params ["_killed", "_killer"];
-if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => EntityKilled] %1", _name]; };
+if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => EntityKilled] %1", name _killed]; };
 
 //Run CallBack functions
 {

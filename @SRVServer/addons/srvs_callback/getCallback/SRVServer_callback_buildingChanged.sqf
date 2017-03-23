@@ -1,5 +1,5 @@
 params ["_from", "_to", "_isRuin"];
-if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => BuildingChanged] %1", _name]; };
+if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => BuildingChanged]"]; };
 
 //Run CallBack functions
 {
