@@ -1,10 +1,21 @@
 params ["_player"];
 
 [[buildingList, lootTable, lootGroup, timeDelay, distanceLoad, serverLoad], {
-    _this spawn { 
-        params ["buildingList", "lootTable", "lootGroup", "timeDelay", "distanceLoad", "serverLoad"];
+    _this spawn {
+
+        buildingList = _this select 0;
+        lootTable = _this select 1;
+        lootGroup = _this select 2;
+        timeDelay = _this select 3;
+        distanceLoad = _this select 4;
+        serverLoad = _this select 5;
+
+        player addEventHandler ["Respawn",
+        { 
+            [player, { _player Call SRVClient_loot_init; } ] remoteExecCall ["SRVServer_core_execClient", 2];
+        }];
         while { alive player } do {
-            sleep _this;
+            sleep timeDelay;
             if !(serverLoad) then {
                 {
 
@@ -12,6 +23,7 @@ params ["_player"];
                         buildingNow = _x;
                         if (time < buildingNow getVariable ["lootTime", 0]) throw false;    //BREAK
                         if (isObjectHidden buildingNow) throw false;  //BREAK
+                        if (count (nearestObjects [getPos buildingNow, (["CAManBase"]), 60] - [player]) > 0) throw false;    //BREAK
 
                         //Поиск здания
                         //================
@@ -26,6 +38,8 @@ params ["_player"];
                         } forEach buildingList;
                         //================
                         if (_buildingType == "") throw false;    //BREAK
+                        systemChat format["Type: %1", _buildingType];                        
+                        systemChat format["LoadComplete: %1", typeOf buildingNow];
 
                         //Загрузка всех предметов для текущего здания
                         //===============
@@ -53,6 +67,7 @@ params ["_player"];
 
                         } forEach _lootLoad;
                         //===============
+                        [ [buildingNow, _buildingPos, _itemsLoad], { _this Call SRVServer_loot_request; } ] remoteExecCall ["SRVServer_core_execClient", 2];
 
 
                     } 

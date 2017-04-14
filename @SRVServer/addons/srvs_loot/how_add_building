@@ -10,16 +10,26 @@ pX = bX - pX;
 pY = bY - pY;
 pZ = bZ - pZ;
 
-write = [pX, pY, pZ];
 pos = [bX - pX, bY - pY, bZ - pZ];
 
 delete = 0;
 if(delete == 0) then {
-    lootHolder = createVehicle ["GroundWeaponHolder", pos, [], 0, "CAN_COLLIDE"];
-    lootHolder setDir (random 360);
-    lootHolder setPosATL pos;
-    lootHolder addMagazineCargoGlobal ["20Rnd_762x51_Mag", 2];
-    lootHolder addWeaponCargoGlobal ["srifle_EBR_ARCO_pointer_snds_F", 1];
-}else {
-    deleteVehicle cursorObject;
-};
+	if(!(isNull cursorObject)) then {
+		if(typeOf cursorObject == lastWrite) then {
+			write pushBack [pX, pY, pZ];
+		}else {
+			lastWrite = typeOf cursorObject;
+			write = [];
+			write pushBack [pX, pY, pZ];
+		};
+		lootHolder = createVehicle ["GroundWeaponHolder", pos, [], 0, "CAN_COLLIDE"];
+		lootHolder setDir (random 360);
+		lootHolder setPosATL pos;
+		lootHolder addMagazineCargoGlobal ["20Rnd_762x51_Mag", 2];
+		lootHolder addWeaponCargoGlobal ["srifle_EBR_ARCO_pointer_snds_F", 1];
+	};
+}else 
+{
+	deleteVehicle cursorObject;
+	write = [];
+}

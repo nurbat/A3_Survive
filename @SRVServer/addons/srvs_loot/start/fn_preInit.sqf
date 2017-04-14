@@ -11,9 +11,7 @@ private ['_code', '_function', '_file'];
 }
 forEach 
 [
-	['SRVServer_loot_createLoot', 'srvs_loot\fnc\SRVServer_loot_createLoot.sqf'],
-	['SRVServer_loot_getGroup', 'srvs_loot\fnc\SRVServer_loot_getGroup.sqf'],
-	['SRVServer_loot_getItems', 'srvs_loot\fnc\SRVServer_loot_getItems.sqf'],
-	['SRVServer_loot_request', 'srvs_loot\fnc\SRVServer_loot_request.sqf']
+	['SRVServer_loot_request', 'srvs_loot\fn_server\SRVServer_loot_request.sqf'],
+	['SRVClient_loot_init', 'srvs_loot\fn_client\SRVClient_loot_init.sqf']
 ];
 
