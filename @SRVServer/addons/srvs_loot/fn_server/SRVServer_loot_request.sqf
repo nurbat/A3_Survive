@@ -4,7 +4,7 @@ _buildingNow = _this select 0;
 _buildingPos = _this select 1;
 _lootTable = _this select 2;
 
-buildingPosNow = _buildingPos select [0, random countPointLoot];
+buildingPosNow = _buildingPos select [0, countPointLoot];
 buildingLootSpots = [];
 
 _posB = getPosATL _buildingNow;
@@ -14,7 +14,7 @@ bZ = _posB select 2;
 
 {
     deleteVehicle _x;
-} forEach _buildingNow getVariable ["lootSpots", []];
+} forEach (_buildingNow getVariable ["lootSpots", []]);
 
 _chance = floor(random [0,100,50]);
 { 
