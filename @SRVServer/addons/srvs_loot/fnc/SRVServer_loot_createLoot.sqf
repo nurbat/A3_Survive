@@ -1,4 +1,4 @@
-_timeDelay = getNumber( configFile >> "SRVConfig" >> "SRVLoot" >> "lootLife");
+_timeDelay = getNumber( configFile >> "SRVConfig" >> "SRVLoot" >> "timeDelay");
 _countPointLoot = getNumber( configFile >> "SRVConfig" >> "SRVLoot" >> "countPointLoot");
 _countItemsLoot = getNumber( configFile >> "SRVConfig" >> "SRVLoot" >> "countItemsLoot");
 _lootLife = getNumber( configFile >> "SRVConfig" >> "SRVLoot" >> "lootLife");

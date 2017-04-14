@@ -1,3 +1,4 @@
+#include "\srvs_loot\SRVConfig.sqf";
 private ['_code', '_function', '_file'];
 {
     _code = '';
