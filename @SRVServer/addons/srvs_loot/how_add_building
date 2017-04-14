@@ -1,3 +1,7 @@
+1. Зайти в синглПлеер на нужную карту
+2. Открыть меню (Дебаг консоль/ Консоль разработчика)
+3. Добавить скрипт в большое окно
+
 bX = (getPosATL cursorObject) select 0;
 bY = (getPosATL cursorObject) select 1;
 bZ = (getPosATL cursorObject) select 2;
@@ -13,15 +17,28 @@ pZ = bZ - pZ;
 pos = [bX - pX, bY - pY, bZ - pZ];
 
 delete = 0;
+typeBuild = "EDIT_TYPE";
 if(delete == 0) then {
 	if(!(isNull cursorObject)) then {
-		if(typeOf cursorObject == lastWrite) then {
-			write pushBack [pX, pY, pZ];
-		}else {
+
+		if(isNil "lastWrite") then {
 			lastWrite = typeOf cursorObject;
-			write = [];
-			write pushBack [pX, pY, pZ];
+			buildPos = [];
+			build = [typeBuild, lastWrite, []];
 		};
+
+		if !(typeOf cursorObject == lastWrite) then {
+			lastWrite = typeOf cursorObject;			
+			buildPos = [];
+			buildPos pushBack [pX, pY, pZ];
+			build = [typeBuild, lastWrite, buildPos];			
+		}
+		else
+		{
+			buildPos pushBack [pX, pY, pZ];
+			build = [typeBuild, lastWrite, buildPos];			
+		};
+
 		lootHolder = createVehicle ["GroundWeaponHolder", pos, [], 0, "CAN_COLLIDE"];
 		lootHolder setDir (random 360);
 		lootHolder setPosATL pos;
@@ -31,5 +48,12 @@ if(delete == 0) then {
 }else 
 {
 	deleteVehicle cursorObject;
-	write = [];
+	buildPos = [];
+	build = [];			
 }
+
+
+4. В нижние, узкие окошки
+build - Отвечает за добовляемое здание, которые нужно будет вставить (Добавить целиком строку в файл конфигурации)
+buildPos - Отвечает за список кординат, которые нужно будет вставить
+typeOf cursorObject - За название здания, строения
