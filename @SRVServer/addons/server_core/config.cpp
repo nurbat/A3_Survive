@@ -28,6 +28,8 @@ class CfgFunctions
 			class getMagazine {};
 			class itemType {};
 			class randomize {};
+			class vehicleGetHitPoints {};
+			class findRoadPosition {};
 		};
 	};
 };
