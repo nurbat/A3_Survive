@@ -1,0 +1,1 @@
+{ _player Call SRVLoot_fnc_connected; }  Call SRVCall_fnc_setPlayerConnected;

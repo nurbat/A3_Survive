@@ -1,1 +1,0 @@
-{ _player Call SRVClient_loot_init; }   Call SRVServer_callback_setPlayerConnected;
