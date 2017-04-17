@@ -6,7 +6,7 @@
 
 DebugLevel = 3;
 
-spawnRadius [0, 0, 1500];//[CenterX, CenterY, Radius]
+spawnRadius = [7000, 7000, 7000];//[CenterX, CenterY, Radius]
 
 //-----------------------------
 disableVehicleNVGGlobal = false; //Отключает пнв
@@ -14,28 +14,9 @@ disableVehicleThermalGlobal = false; //Отключает тепловизор
 //==========================
 disableVehicleThermal = []; //Отключает тепловизор на выбранной технике
 disableVehicleNVG = []; //Отключает пнв на выбранной технике
-weaponBlacklist = []; //Отключает оружие на технике
-ammoBlacklist = []; //Уберает патроны для оружия из техники
-
-//---------------
-disableRearm = false;
-//Пополние боезапаса
-rearmSystemActive = false;
-rearmGroundDistance = 10;
-rearmAirDistance = 20;
-RearmTime = 15;                 //15 second for Full rearm 1 weapon
-
-//------------------
-disableRefuel = false;
-//Скорость заправки
-refuelSystemActive = false;         
-refuelGroundSpeed = 3;				// 3 liters/second (for ground vehicles, small tank)
-RefuelGroundDistance = 5;
-refuelAirSpeed = 20;		        // 20 liters/second (for air vehicles, big tank so need to be faster)
-RefuelAirDistance = 5;
 
 //Состояние топлива и вооружения
-vehiclesFuelPercent = 0;
+vehiclesFuelPercent = 100;
 vehiclesAmmoPercent = 0;
 
 //Спавн техники по установленной точке
@@ -55,6 +36,7 @@ vehiclesRandomRoad = [
 
 //Спавн техники рандомно на карте
 vehiclesRandom = [
+	[100, "Bike", ["B_Quadbike_01_F"], 0, false]
 	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], PersistBool],
 	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, PersistBool]
 ];

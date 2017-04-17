@@ -9,16 +9,17 @@
                         //Поиск здания
                         //================
                         _buildingType = "";
-                        _buildingPos = [];
+                        posItems = [];
                         {
                             buildingGet = _x;
                             if(buildingGet select 1 == typeOf buildingNow) then {
                                 _buildingType = buildingGet select 0;
-                                _buildingPos = buildingGet select 2;
+                                if(count (buildingGet select 2) > 0) then { posItems = (buildingNow modelToWorld (buildingGet select 2)); }
+                                else { posItems = (buildingNow buildingPos -1); };
                             };
                         } forEach buildingList;
                         //================
-                        if (_buildingType == "") throw false;    //BREAK
+                        if !(count posItems > 0) throw false;    //BREAK
 
                         //Загрузка всех предметов для текущего здания
                         //===============

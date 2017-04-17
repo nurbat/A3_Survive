@@ -2,54 +2,43 @@
 2. Открыть меню (Дебаг консоль/ Консоль разработчика)
 3. Добавить скрипт в большое окно
 
-bX = (getPosATL cursorObject) select 0;
-bY = (getPosATL cursorObject) select 1;
-bZ = (getPosATL cursorObject) select 2;
+localPos = cursorObject worldToModel getPosATL player;
+worldPos = cursorObject modelToWorld localPos;
 
-pX = (getPosATL player) select 0;
-pY = (getPosATL player) select 1;
-pZ = (getPosATL player) select 2;
-
-pX = bX - pX;
-pY = bY - pY;
-pZ = bZ - pZ;
-
-pos = [bX - pX, bY - pY, bZ - pZ];
-
-delete = 0;
-typeBuild = "EDIT_TYPE";
-if(delete == 0) then {
-	if(!(isNull cursorObject)) then {
-
-		if(isNil "lastWrite") then {
-			lastWrite = typeOf cursorObject;
-			buildPos = [];
-			build = [typeBuild, lastWrite, []];
-		};
-
-		if !(typeOf cursorObject == lastWrite) then {
-			lastWrite = typeOf cursorObject;			
-			buildPos = [];
-			buildPos pushBack [pX, pY, pZ];
-			build = [typeBuild, lastWrite, buildPos];			
-		}
-		else
-		{
-			buildPos pushBack [pX, pY, pZ];
-			build = [typeBuild, lastWrite, buildPos];			
-		};
-
-		lootHolder = createVehicle ["GroundWeaponHolder", pos, [], 0, "CAN_COLLIDE"];
-		lootHolder setDir (random 360);
-		lootHolder setPosATL pos;
-		lootHolder addMagazineCargoGlobal ["20Rnd_762x51_Mag", 2];
-		lootHolder addWeaponCargoGlobal ["srifle_EBR_ARCO_pointer_snds_F", 1];
-	};
-}else 
-{
-	deleteVehicle cursorObject;
-	buildPos = [];
-	build = [];			
+delete = 0; 
+typeBuild = "EDIT_TYPE"; 
+if(delete == 0) then { 
+ if(!(isNull cursorObject)) then { 
+ 
+  if(isNil "lastWrite") then { 
+   lastWrite = typeOf cursorObject; 
+   buildPos = []; 
+   build = [typeBuild, lastWrite, []]; 
+  }; 
+ 
+  if !(typeOf cursorObject == lastWrite) then { 
+   lastWrite = typeOf cursorObject;    
+   buildPos = []; 
+   buildPos pushBack localPos; 
+   build = [typeBuild, lastWrite, buildPos];    
+  } 
+  else 
+  { 
+   buildPos pushBack localPos; 
+   build = [typeBuild, lastWrite, buildPos];    
+  }; 
+ 
+  lootHolder = createVehicle ["GroundWeaponHolder", worldPos, [], 0, "CAN_COLLIDE"]; 
+  lootHolder setDir (random 360); 
+  lootHolder setVehiclePosition [worldPos, [], 0, "CAN_COLLIDE"]; 
+  lootHolder addMagazineCargoGlobal ["20Rnd_762x51_Mag", 2]; 
+  lootHolder addWeaponCargoGlobal ["srifle_EBR_ARCO_pointer_snds_F", 1]; 
+ }; 
+}else  
+{ 
+ deleteVehicle cursorObject; 
+ buildPos = []; 
+ build = [];    
 }
 
 

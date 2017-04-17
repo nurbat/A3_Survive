@@ -3,36 +3,28 @@ _buildingNow = _this select 0;
 _buildingPos = _this select 1;
 _lootTable = _this select 2;
 
-buildingPosNow = _buildingPos select [0, countPointLoot];
 buildingLootSpots = [];
 weaponSpotsCount = countWeaponLoot;
-
-
-_posB = getPosATL _buildingNow;
-bX = _posB select 0;
-bY = _posB select 1;
-bZ = _posB select 2;
 
 {
     deleteVehicle _x;
 } forEach (_buildingNow getVariable ["lootSpots", []]);
 
 _chance = floor(random [0,100,50]);
-{   
-    _posP =  _x;
-
-    pX = _posP select 0;
-    pY = _posP select 1;
-    pZ = _posP select 2;
-
-    _posNow = [bX - pX, bY - pY, bZ - pZ];
+_spawnedPoint = [];
+_countPointLoot = random countPointLoot;
+while { count _spawnedPoint < countPointLoot } do
+{
+    _buildingPos = _buildingPos - _spawnedPoint;
+    _posNow = _buildingPos select (floor (random (count _buildingPos)));
+    _spawnedPoint pushBack _posNow;
 
     _lootHolder = createVehicle ["GroundWeaponHolder", _posNow, [], 0, "CAN_COLLIDE"];
     _lootHolder setDir (random 360);
-    _lootHolder setPosATL _posNow;
+    _lootHolder setVehiclePosition [_posNow, [], 0, "CAN_COLLIDE"];
+    if(DebugLevel > 2) then { diag_log format["[SRV-LOOT-%1] %2", typeOf _buildingNow, _lootHolder]; };	
 
     if !(chanceBuilding) then { _chance = floor(random [0,100,50]); };
-    diag_log format["Server:Chance: %1", _chance];
     _itemsNow = [];
     {
         _itemLoad = _x;
@@ -66,8 +58,7 @@ _chance = floor(random [0,100,50]);
         _spawnedItemClassNames pushBack _itemName;
     };
     buildingLootSpots pushBack _lootHolder;
-
-} forEach buildingPosNow;
+};
 
 _buildingNow setVariable["lootSpots", buildingLootSpots, true];
 _buildingNow setVariable["lootTime", time + timeLifeLoot, true];

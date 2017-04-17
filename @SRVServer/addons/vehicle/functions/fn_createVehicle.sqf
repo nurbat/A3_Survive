@@ -43,10 +43,11 @@ if(_usePersist) then {
 _vehicle setVariable ["IsPersistent", _usePersist];
 
 // Add a debug marker
-if (DebugLevel > 2) then
+if (DebugLevel > 1) then
 {
 	vehicleLocationCount = vehicleLocationCount + 1;
-	_debugMarker = createMarker ["vehicleMarker#"+str vehicleLocationCount, _positionReal];
+	_debugMarker = createMarker ["vehicleMarker#"+str vehicleLocationCount, _vehicle];
 	_debugMarker setMarkerColor "ColorOrange";
 	_debugMarker setMarkerType "mil_dot_noShadow";
 };
+_vehicle
