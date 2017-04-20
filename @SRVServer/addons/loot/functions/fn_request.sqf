@@ -13,11 +13,11 @@ weaponSpotsCount = countWeaponLoot;
 _chance = floor(random [0,100,50]);
 _spawnedPoint = [];
 _countPointLoot = random countPointLoot;
-while { count _spawnedPoint < countPointLoot } do
+while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
 {
-    _buildingPos = _buildingPos - _spawnedPoint;
     _posNow = _buildingPos select (floor (random (count _buildingPos)));
     _spawnedPoint pushBack _posNow;
+    _buildingPos = _buildingPos - _posNow;
 
     _lootHolder = createVehicle ["GroundWeaponHolder", _posNow, [], 0, "CAN_COLLIDE"];
     _lootHolder setDir (random 360);
@@ -38,18 +38,15 @@ while { count _spawnedPoint < countPointLoot } do
         switch (_typeItem) do
         {
             case "Weapon":  {
-                if (weaponSpotsCount > 0) then {
-                    if !(count (weaponCargo _lootHolder) > 0) then {
-                        weaponSpotsCount = weaponSpotsCount - 1;
-                        _lootHolder addWeaponCargoGlobal [_itemName, 1]; 
-                        _magazineClassNames = getArray(configFile >> "CfgWeapons" >> _itemName >> "magazines");
-                        if (count(_magazineClassNames) > 0) then {
-                            _magazineClassName = selectRandom _magazineClassNames;
-                            _numberOfMagazines = (countMagazineLoot select 0) + floor(random (countMagazineLoot select 1)); 
-                            _lootHolder addMagazineCargoGlobal [_magazineClassName, _numberOfMagazines];
-                            _spawnedItemClassNames pushBack _magazineClassName;
-                        };
-                    };
+                if (!(weaponSpotsCount > 0) and (count (weaponCargo _lootHolder) > 0)) throw false;
+                weaponSpotsCount = weaponSpotsCount - 1;
+                _lootHolder addWeaponCargoGlobal [_itemName, 1]; 
+                _magazineClassNames = getArray(configFile >> "CfgWeapons" >> _itemName >> "magazines");
+                if (count(_magazineClassNames) > 0) then {
+                _magazineClassName = selectRandom _magazineClassNames;
+                    _numberOfMagazines = (countMagazineLoot select 0) + floor(random (countMagazineLoot select 1)); 
+                    _lootHolder addMagazineCargoGlobal [_magazineClassName, _numberOfMagazines];
+                    _spawnedItemClassNames pushBack _magazineClassName;
                 };
             };
             case "Backpack": 	{ _lootHolder addBackpackCargoGlobal [_itemName, 1];  };

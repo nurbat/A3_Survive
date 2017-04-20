@@ -36,7 +36,7 @@ vehiclesRandomRoad = [
 
 //Спавн техники рандомно на карте
 vehiclesRandom = [
-	[100, "Bike", ["B_Quadbike_01_F"], 0, false]
+	[50, "Bike", ["B_Quadbike_01_F"], 0, true]
 	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], PersistBool],
 	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, PersistBool]
 ];
