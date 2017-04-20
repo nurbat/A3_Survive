@@ -14,6 +14,18 @@ class CfgFunctions
 {
 	class SRVCore
 	{
+		class default
+		{
+			file = "\server_core\default";
+			class setItemCargo {};
+			class getItemCargo {};
+			
+			class setEveryContainer {};
+			class getEveryContainer {};
+
+			class getVehicleAmmo {};
+			class setVehicleAmmo {};
+		}
 		class functions
 		{
 			file = "\server_core\functions";
@@ -30,6 +42,9 @@ class CfgFunctions
 			class randomize {};
 			class vehicleGetHitPoints {};
 			class findRoadPosition {};
+
+			class setWeaponsItemsCargo {};
+			class setMagazinesAmmoCargo {};
 		};
 	};
 };

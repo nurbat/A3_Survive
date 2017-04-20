@@ -3,7 +3,6 @@
 		_cargoType = _x call SRVCore_fnc_itemType;
 		switch (_cargoType) do
 		{
-			case "Mine": 		{ _player addItem _x; };
 			case "Weapon": 		{ _player addWeaponGlobal _x; };
 			case "Backpack": 	{ _player addBackpackGlobal _x; };
 			case "Uniform": 	{ _player forceAddUniform _x; };

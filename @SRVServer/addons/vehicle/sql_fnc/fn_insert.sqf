@@ -15,11 +15,6 @@ if!(_availableHitpoints isEqualTo [])then
 	}
 	forEach (_availableHitpoints select 0);
 };
-//AMMO
-_vehicleAmmo = [];
-{
-	_vehicleAmmo pushBack [_x select 0, _x select 1, _x select 2];
-} forEach magazinesAllTurrets _vehicleObject;
 
 _insertstr = format["INSERT INTO vehicle SET 
 name = '%1', 
@@ -28,32 +23,20 @@ is_locked = '%3',
 fuel = '%4',
 damage = '%5',
 hitpoints = '%6',
-position_x = '%7',
-position_y = '%8',
-position_z = '%9',
-direction_x = '%10',
-direction_y = '%11',
-direction_z = '%12',
-up_x = '%13',
-up_y = '%14',
-up_z = '%15',
-ammo = '%16'",
+position = '%7',
+direction = '%8',
+up = '%9',
+ammo = '%10'",
 _vehicleName, 
 typeOf _vehicleObject,
 locked _vehicleObject,
 fuel _vehicleObject,
 damage _vehicleObject,
 _vehicleHitpoints,
-_vehiclePos select 0,
-_vehiclePos select 1,
-_vehiclePos select 2,
-_vectorDirection select 0,
-_vectorDirection select 1,
-_vectorDirection select 2,
-_vectorUp select 0,
-_vectorUp select 1,
-_vectorUp select 2,
-_vehicleAmmo
+_vehiclePos,
+_vectorDirection,
+_vectorUp,
+_vehicleObject Call SRVCore_fnc_getVehicleAmmo
 ];
 if(DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] Save %1", typeOf _vehicleObject]; };
 [0, _insertstr] call SRVDB_fnc_query;
