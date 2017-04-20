@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 18, 2017 at 09:42 PM
+-- Generation Time: Apr 20, 2017 at 10:00 PM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.14
 
@@ -53,6 +53,16 @@ CREATE TABLE `vehicle` (
   `vehicle_texture` text,
   `ammo` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD PRIMARY KEY (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
