@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 20, 2017 at 10:14 PM
+-- Generation Time: Apr 21, 2017 at 08:16 PM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.14
 
@@ -35,15 +35,9 @@ CREATE TABLE `vehicle` (
   `fuel` double UNSIGNED NOT NULL DEFAULT '0',
   `damage` double UNSIGNED NOT NULL DEFAULT '0',
   `hitpoints` text,
-  `position_x` double NOT NULL DEFAULT '0',
-  `position_y` double NOT NULL DEFAULT '0',
-  `position_z` double NOT NULL DEFAULT '0',
-  `direction_x` double NOT NULL DEFAULT '0',
-  `direction_y` double NOT NULL DEFAULT '0',
-  `direction_z` double NOT NULL DEFAULT '0',
-  `up_x` double NOT NULL DEFAULT '0',
-  `up_y` double NOT NULL DEFAULT '0',
-  `up_z` double NOT NULL DEFAULT '1',
+  `position` text,
+  `direction` text,
+  `up` text,
   `cargo_items` text,
   `cargo_magazines` text,
   `cargo_weapons` text,

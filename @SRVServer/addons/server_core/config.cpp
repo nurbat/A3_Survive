@@ -14,40 +14,39 @@ class CfgFunctions
 {
 	class SRVCore
 	{
-		class default
+		class cargo
 		{
-			file = "\server_core\default";
+			file = "\server_core\cargo";
 			class setItemCargo {};
 			class getItemCargo {};
 			
-			class setEveryContainer {};
 			class getEveryContainer {};
+			class setEveryContainer {};
 
 			class getVehicleAmmo {};
 			class setVehicleAmmo {};
-
-			class getAllHitPointsDamage {};
-			class setAllHitPointsDamage {};
-		}
+			
+			class setWeaponsItemsCargo {};
+		};
+		class server
+		{
+			file = "\server_core\server";
+			class preInit {preInit = 1;};
+			class postInit {postInit = 1;};
+			class execClient {};
+			class execServer {};
+		};
 		class functions
 		{
 			file = "\server_core\functions";
-			class preInit {preInit = 1;};
-			class postInit {postInit = 1;};
 			class circle {};
-			class execClient {};
-			class execServer {};
-			class getCargo {};
-			class getHitPoint {};
-			class getLoadedMagazines {};
-			class getMagazine {};
 			class itemType {};
-			class randomize {};
 			class vehicleGetHitPoints {};
 			class findRoadPosition {};
-
-			class setWeaponsItemsCargo {};
 			class setMagazinesAmmoCargo {};
+
+			class getAllHitPointsDamage {};
+			class setAllHitPointsDamage {};
 		};
 	};
 };

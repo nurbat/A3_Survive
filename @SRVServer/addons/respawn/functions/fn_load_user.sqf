@@ -2,6 +2,8 @@ _data = _this select 0;
 _player = _this select 1;
 
 [_data, { 
+    player disableAI "ALL";
+    
     removeAllWeapons player;
     removeAllAssignedItems player;
     removeGoggles player;
@@ -11,41 +13,63 @@ _player = _this select 1;
     removeBackpack player;
     removeAllItems player;
     removeAllContainers player;
+
+    _playerUID =            _this select 0;
+    _playerNAME =           _this select 1;
+    _playerDamage =         _this select 2;
+    _playerDir =            _this select 3;
+    _playerPos =            _this select 4;
+    _playerHit =            _this select 5;
+    _playerAssignedItems =  _this select 6;
+    _playerBackpack =       _this select 7;
+    _playerBackpackItems =  _this select 8;
+    _playerBackpackMagazine = _this select 9;
+    _playerBackpackWeapons = _this select 10;
+    _playerCurrentWeapon =  _this select 11;
+    _playerGoggles =        _this select 12;
+    _playerHandgunItems =   _this select 13;
+    _playerHandgunWeapon =  _this select 14;
+    _playerHeadgear =       _this select 15;
+    _playerBinocular =      _this select 16;
+    _playerLoadedMagazine = _this select 17;
+    _playerPrimaryWeapon =  _this select 18;
+    _playerPrimaryItems =   _this select 19;
+    _playerSecondaryWeapon = _this select 20;
+    _playerSecondaryItems = _this select 21;
+    _playerUniform =        _this select 22;
+    _playerUniformItems =   _this select 23;
+    _playerUniformMagazine = _this select 24;
+    _playerUniformWeapons = _this select 25;
+    _playerVest =           _this select 26;
+    _playerVestItems =      _this select 27;
+    _playerVestMagazines =  _this select 28;
+    _playerVestWeapons =    _this select 29;
         
-    player setDamage (_this select 2);
-    player setPosASL [(_this select 4),(_this select 5),(_this select 6)];
-    player setDir (_this select 3);
-    player disableAI "ALL";
+    player setDamage _playerDamage;
+    player setPosASL _playerPos;
+    player setDir _playerDir;
 
-    //hitPoints
-    _hitPoints = call compile (_this select 7);
-    {
-        player setHitPointDamage [_x select 0, _x select 1];
-    } forEach _hitPoints;
-
+    [player, _playerHit] Call SRVCore_fnc_setAllHitPointsDamage;
 
     //assignedItems
-    _assignedItems = (_this select 8);
-    if !(_assignedItems isEqualTo []) then
+    if !(_playerAssignedItems isEqualTo []) then
     {
         {
             player linkItem _x;
         }
-        forEach _assignedItems;
+        forEach _playerAssignedItems;
     };
 
     //goggles
-    _goggles = _this select 14;
-    if (_goggles != "") then
+    if (_playerGoggles != "") then
     {
-        player addGoggles _goggles;
+        player addGoggles _playerGoggles;
     };
 
     //handgunWeapon
-    _handgunWeapon = _this select 16;
-    if (_handgunWeapon != "") then
+    if (_playerHandgunWeapon != "") then
     {
-        player addWeaponGlobal _handgunWeapon;
+        player addWeaponGlobal _playerHandgunWeapon;
         removeAllHandgunItems player;
         { 
             if (_x != "") then
@@ -53,35 +77,31 @@ _player = _this select 1;
                 player addHandgunItem _x; 
             };
         } 
-        forEach (_this select 15);
+        forEach _playerHandgunItems;
     };
 
     //headgear
-    _headgear = _this select 17;
-    if (_headgear != "") then
+    if (_playerHeadgear != "") then
     {
-        player addHeadgear _headgear;
+        player addHeadgear _playerHeadgear;
     };
 
     //binocular
-    _binocular = (_this select 18);
-    if (_binocular != "") then
+    if (_playerBinocular != "") then
     {
-        player addWeaponGlobal _binocular;
+        player addWeaponGlobal _playerBinocular;
     };
 
     //currentWeapon
-    _currentWeapon = (_this select 13);
-    if (_currentWeapon != "") then
+    if (_playerCurrentWeapon != "") then
     {
-        player selectWeapon _currentWeapon;
+        player selectWeapon _playerCurrentWeapon;
     };
 
     //primaryWeapon
-    _primaryWeapon = (_this select 20);
-    if (_primaryWeapon != "") then 
+    if (_playerPrimaryWeapon != "") then 
     {
-        player addWeaponGlobal _primaryWeapon;
+        player addWeaponGlobal _playerPrimaryWeapon;
         removeAllPrimaryWeaponItems player;
         { 
             if (_x != "") then
@@ -89,99 +109,86 @@ _player = _this select 1;
                 player addPrimaryWeaponItem _x; 
             };
         } 
-        forEach (_this select 21);
+        forEach _playerPrimaryItems;
     };
 
 
     //secondaryWeapon
-    _secondaryWeapon = _this select 22;
-    if (_secondaryWeapon != "") then
+    if (_playerSecondaryWeapon != "") then
     {
-        player addWeaponGlobal _secondaryWeapon;
+        player addWeaponGlobal _playerSecondaryWeapon;
         { 
             if (_x != "") then
             {
                 player addSecondaryWeaponItem _x; 
             };
         } 
-        forEach (_this select 23);
+        forEach _playerSecondaryItems;
     };
 
     //loaded_magazines
     { 
         player addWeaponItem [_x select 0, [_x select 1, _x select 2, _x select 3]];
-    } forEach (_this select 19);
+    } forEach _playerLoadedMagazine;
 
 
     //Uniform
-    _uniform = _this select 24;
-    if (_uniform != "") then 
+    if (_playerUniform != "") then 
     {
-        player forceAddUniform _uniform;
+        player forceAddUniform _playerUniform;
 
         _uniformContainer = uniformContainer player;
         if !(isNil "_uniformContainer") then
         {
             { 
                 _uniformContainer addWeaponCargoGlobal _x; 
-            } 
-            forEach (_this select 27);
+            } forEach _playerUniformWeapons;
             { 
                 _uniformContainer addMagazineAmmoCargo [_x select 0, 1, _x select 1]; 
-            } 
-            forEach (_this select 26);
+            } forEach _playerUniformMagazine;
             { 
                 _uniformContainer addItemCargoGlobal _x; 
-            } 
-            forEach (_this select 25);
+            } forEach _playerUniformItems;
         };
     };
 
     //Vest
-    _vest = _this select 28;
-    if (_vest != "") then
+    if (_playerVest != "") then
     {
-        player addVest _vest;
+        player addVest _playerVest;
 
         _vestContainer = vestContainer player;
         if !(isNil "_vestContainer") then
         {
             { 
                 _vestContainer addWeaponCargoGlobal _x; 
-            } 
-            forEach (_this select 31);
+            } forEach _playerVestWeapons;
             { 
                 _vestContainer addMagazineAmmoCargo [_x select 0, 1, _x select 1]; 
-            } 
-            forEach (_this select 30);
+            } forEach _playerVestMagazines;
             { 
                 _vestContainer addItemCargoGlobal _x; 
-            } 
-            forEach (_this select 29);
+            } forEach _playerVestItems;
         };
     };
 
     //backpack
-    _backpack = _this select 9;
-    if (_backpack != "") then
+    if (_playerBackpack != "") then
     {
-        player addBackpackGlobal _backpack;
+        player addBackpackGlobal _playerBackpack;
 
         _backpackContainer = backpackContainer player;
         if !(isNil "_backpackContainer") then
         {
             { 
                 _backpackContainer addWeaponCargoGlobal _x; 
-            } 
-            forEach (_this select 12);
+            } forEach _playerBackpackWeapons;
             { 
                 _backpackContainer addMagazineAmmoCargo [_x select 0, 1, _x select 1]; 
-            } 
-            forEach (_this select 11);
+            } forEach _playerBackpackMagazine;
             { 
                 _backpackContainer addItemCargoGlobal _x; 
-            } 
-            forEach (_this select 10);
+            } forEach _playerBackpackItems;
         };
     };
     

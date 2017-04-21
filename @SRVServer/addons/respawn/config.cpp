@@ -28,6 +28,13 @@ class CfgFunctions
 			class load_user {};
 			class screen {};
 		};
+		class util
+		{
+			file = "\respawn\util";
+			class getMagazine {};
+			class getLoadedMagazines {};
+			class getCargo {};
+		};
 		class sql
 		{
 			file = "\respawn\sql_fnc";
