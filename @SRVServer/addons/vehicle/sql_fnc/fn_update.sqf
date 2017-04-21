@@ -12,17 +12,6 @@ _vehiclePos = getPosASL _vehicleObject;
 _vectorDirection = vectorDir _vehicleObject;
 _vectorUp = vectorUp _vehicleObject;
 
-//HIT_POINTS
-_availableHitpoints = getAllHitPointsDamage _vehicleObject;
-_vehicleHitpoints = [];
-if!(_availableHitpoints isEqualTo [])then
-{
-	{
-		_vehicleHitpoints pushBack [_x ,_vehicleObject getHitPointDamage _x];
-	}
-	forEach (_availableHitpoints select 0);
-};
-
 _updatestr = format ["UPDATE vehicle SET 
 name = '%1', 
 class = '%2',
@@ -44,7 +33,7 @@ typeOf _vehicleObject,
 locked _vehicleObject,
 fuel _vehicleObject,
 damage _vehicleObject,
-_vehicleHitpoints,
+_vehicleObject Call SRVCore_fnc_getAllHitPointsDamage,
 _vehiclePos,
 _vectorDirection,
 _vectorUp,

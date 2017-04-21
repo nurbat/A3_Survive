@@ -2,7 +2,7 @@ _tracker = _this;
 _return = [];
 {
     _VehicleUID = _x;
-	if(DebugLevel > 0) then { diag_log format["[SRV-Vehicle] ADD %1", _VehicleUID]; };	
+	if(DebugLevel > 1) then { diag_log format["[SRV-Vehicle] TRACKER SET: %1", _VehicleUID]; };	
     if((_VehicleUID select 0) isEqualTo _tracker) then
     {
         _VehicleUID set [1, (_x select 1) + 1];

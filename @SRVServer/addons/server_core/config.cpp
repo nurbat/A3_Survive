@@ -25,6 +25,9 @@ class CfgFunctions
 
 			class getVehicleAmmo {};
 			class setVehicleAmmo {};
+
+			class getAllHitPointsDamage {};
+			class setAllHitPointsDamage {};
 		}
 		class functions
 		{
