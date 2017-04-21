@@ -15,6 +15,7 @@ if (count vehiclesLocation > 0) then
 			_vehicleClassName =	_classNames select (floor (random (count _classNames)));
 			_position = _positions select (floor (random (count _positions)));
 			_positionReal = [_position, 0, locationRadiusSpawn, 5, 0 , 1 , 0 , blacklistedPositions] call BIS_fnc_findSafePos;
+			
 
  			[_name, _vehicleClassName, _damage, _positionReal, _persist] call SRVVehicle_fnc_createVehicle; 
 

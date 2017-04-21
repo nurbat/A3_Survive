@@ -38,6 +38,7 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
         switch (_typeItem) do
         {
             case "Weapon":  {
+                try {
                 if (!(weaponSpotsCount > 0) and (count (weaponCargo _lootHolder) > 0)) throw false;
                 weaponSpotsCount = weaponSpotsCount - 1;
                 _lootHolder addWeaponCargoGlobal [_itemName, 1]; 
@@ -48,6 +49,7 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
                     _lootHolder addMagazineCargoGlobal [_magazineClassName, _numberOfMagazines];
                     _spawnedItemClassNames pushBack _magazineClassName;
                 };
+                }catch {};
             };
             case "Backpack": 	{ _lootHolder addBackpackCargoGlobal [_itemName, 1];  };
             default 			{ _lootHolder addItemCargoGlobal [_itemName, 1];  };

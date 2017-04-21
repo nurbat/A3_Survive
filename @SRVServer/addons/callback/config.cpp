@@ -18,6 +18,8 @@ class CfgFunctions
 			file = "\callback\functions\getCallback";
 			class buildingChanged {};
 			class entityKilled {};
+			class vehicleKilled {};
+			class playerKilled {};
 			class entityRespawned {};
 			class handleDisconnect {};
 			class playerConnected {};
@@ -27,6 +29,8 @@ class CfgFunctions
 			file = "\callback\functions\setCallback";
 			class setBuildingChanged {};
 			class setEntityKilled {};
+			class setVehicleKilled {};
+			class setPlayerKilled {};
 			class setEntityRespawned {};
 			class setHandleDisconnect {};
 			class setPlayerConnected {};

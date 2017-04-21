@@ -30,6 +30,7 @@ if !(isNil "_vehicleLoaded") then
         _vehicleObject lock _vehicleLocked;
         _vehicleObject setFuel _vehicleFuel;
         _vehicleObject setDamage _vehicleDamage;
+        _vehicleObject addEventHandler ["GetOut", { _this call SRVVehicle_fnc_update}];
 
         [_vehicleObject, _vehicleHitpoints] Call SRVCore_fnc_setAllHitPointsDamage;
         [_vehicleObject, _vehicleItems]     Call SRVCore_fnc_setItemCargo;

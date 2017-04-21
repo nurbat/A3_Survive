@@ -38,6 +38,7 @@ _vehicle setFuel (vehiclesFuelPercent / 100);
 // Add vehicle to database.
 if(_usePersist) then {
 	[_uid, _vehicle] call SRVVehicle_fnc_insert;
+	_vehicle addEventHandler ["GetOut", { _this call SRVVehicle_fnc_update}];
 };
 _vehicle setVariable ["IsPersistent", _usePersist];
 
