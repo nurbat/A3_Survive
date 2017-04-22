@@ -1,10 +1,8 @@
 _vehicleUID = _this select 0;
 _vehicleObject = _this select 1;
 
-_vehicleUID = _vehicleObject getVariable["OwnerName", ""];
 _vehicleDatabase = _vehicleObject getVariable["DatabaseID", 0];
-
-_vehicleDatabase = ["Player", _vehicleObject] Call SRVVehicle_fnc_insert;
+_vehicleDatabase = [_vehicleUID, _vehicleObject] Call SRVVehicle_fnc_insert;
 
 _vehicleObject setVariable["DatabaseID", _vehicleDatabase, true];
 _vehicleObject setVariable["OwnerName", _vehicleUID, true];
