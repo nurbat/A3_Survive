@@ -3,7 +3,7 @@ countItemLoot = 5;//Max || Колиство предметов на точке, 
 countMagazineLoot = [2, 3];//[Min, Max] || Количество патронов к оружию
 countWeaponLoot = 3;//Max || Максимальное количество оружия на здание
 chanceBuilding = true;//Использовать процент здания на весь лут внутри
-DebugLevel = 3;
+DebugLevel = 0;
 
 timeDelay = 60;
 timeLifeLoot = 120;

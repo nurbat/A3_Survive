@@ -73,9 +73,7 @@ class CfgRemoteExec
     {
         mode = 2;//1
         jip = 0;
-		class bis_fnc_execvm { allowedTargets=2; };
-		class SRVCore_execClient { allowedTargets=1; };		
-		class SRVCore_execServer { allowedTargets=2; };		
+        #include "callback\remoteExec.cpp"
     };
 
     class Commands

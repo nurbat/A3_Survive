@@ -22,7 +22,6 @@ if ((typeName _items) isEqualTo "ARRAY") then
                 _backName = _x select 0;
                 _backObject = _x select 1;
                 if !(_backName == _cargoType) throw false;
-                diag_log format["%1 - %2 - %3", getItemCargo _backObject, count (magazinesAmmoCargo _backObject), count (weaponsItemsCargo _backObject)];
                 if (count ((getItemCargo _backObject) select 0) > 0) throw false;
                 if (count (magazinesAmmoCargo _backObject) > 0) throw false;
                 if (count (weaponsItemsCargo _backObject) > 0) throw false;

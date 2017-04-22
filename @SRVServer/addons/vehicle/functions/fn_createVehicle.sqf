@@ -34,7 +34,7 @@ _hitpoints = _className call SRVCore_fnc_vehicleGetHitPoints;
 } forEach _hitpoints;
 
 _vehicle setFuel ((_rearmLevel select 0) / 100);
-_vehicle setVehicleAmmoDef ((rearmLevel select 0) / 100);
+_vehicle setVehicleAmmoDef ((_rearmLevel select 1) / 100);
 
 // Add vehicle to database.
 if(_usePersist) then {

@@ -18,9 +18,9 @@ class CfgFunctions
 			file = "\vehicle\functions";
 			class getVehicleTracker {};
 			class setVehicleTracker {};
-			class saveVehicle {};
 			class createVehicle {};
 			class objectCreate {};
+			class applyPersist {};
 			class preInit { preInit = 1; };
 			class loadVehicle { postInit = 1; };
 			class spawnVehiclesRandom { };
