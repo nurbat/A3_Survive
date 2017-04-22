@@ -10,17 +10,6 @@ timeLifeLoot = 120;
 distanceLoad = 300;
 serverLoad = false; //Вычесления на сервере (true) / Вычесления на клиенте (false)
 
-buildingList = [
-    ["Military", "Land_Mil_ControlTower", []],
-    ["Military", "Land_Ss_hangar", []],
-    ["Military", "Land_Hlidac_budka", []],
-    ["Military", "Land_Mil_House", []],
-    ["Military", "Land_Mil_Guardhouse", []],
-    ["Military", "Land_Ind_Workshop01_03", []],//Домик с интсрументами
-    ["Military", "Land_HouseBlock_A1_1", []],//Дом с аркой
-    ["Military", "Land_A_GeneralStore_01a", []]//Магазин
-];
-
 lootTable = [
     ["Military", 
         [
