@@ -1,3 +1,6 @@
+//[Multiple, "Type", "Name", [positions]]
+//OR
+//["Type", "Name", [positions]]
 buildingList = [
 	["EDIT_TYPE","Land_Metal_Shed_F",[]],
 	["EDIT_TYPE","Land_u_Addon_01_V1_F",[]],
