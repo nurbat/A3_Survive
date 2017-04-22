@@ -11,7 +11,7 @@ distanceLoad = 300;
 serverLoad = false; //Вычесления на сервере (true) / Вычесления на клиенте (false)
 
 lootTable = [
-    ["Military", 
+    ["EDIT_TYPE", 
         [
             [0, "Arma3_RocketLauncher"],
             [0, "Arma3_RocketLauncher_Ammo"],
