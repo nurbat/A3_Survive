@@ -1,7 +1,7 @@
-_vehicleObject = _this;
+_vehicleObject = _this select 0;
 
-_vehicleName = _vehicleObject getVariable["OwnerName", ""];
-_vehicleId = _vehicleObject getVariable["DatabaseID", 0];
+_vehicleUID = _vehicleObject getVariable["OwnerName", ""];
+_vehicleDatabase = _vehicleObject getVariable["DatabaseID", 0];
 
 _vehiclePos = getPosASL _vehicleObject;
 _vectorDirection = vectorDir _vehicleObject;
@@ -28,7 +28,7 @@ cargo_weapons = '%12',
 cargo_container = '%13',
 ammo = '%14'
 WHERE id = '%15'", 
-_vehicleName, 
+_vehicleUID, 
 typeOf _vehicleObject,
 locked _vehicleObject,
 fuel _vehicleObject,
@@ -42,6 +42,6 @@ magazinesAmmoCargo _vehicleObject,
 weaponsItemsCargo _vehicleObject,
 _vehicleObject Call SRVCore_fnc_getEveryContainer,
 _vehicleObject Call SRVCore_fnc_getVehicleAmmo,
-_vehicleId];//UID %31
+_vehicleDatabase];//UID %31
 if(DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] %1", _updatestr]; };
 [2, _updatestr] call SRVDB_fnc_query;

@@ -4,7 +4,7 @@
 //2 - Level (Get Callback / Set Callback) / Markers
 //3 - Level (Get Callback / Set Callback / Module Callback)
 
-DebugLevel = 3;
+DebugLevel = 1;
 
 spawnRadius = [7000, 7000, 7000];//[CenterX, CenterY, Radius]
 
