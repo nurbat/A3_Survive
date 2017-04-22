@@ -3,7 +3,7 @@ _vehicleObject = _this select 0;
 _vehicleUID = _vehicleObject getVariable["OwnerName", ""];
 _vehicleDatabase = _vehicleObject getVariable["DatabaseID", 0];
 
-_vehiclePos = getPosASL _vehicleObject;
+_vehiclePos = getPosATL _vehicleObject;
 _vectorDirection = vectorDir _vehicleObject;
 _vectorUp = vectorUp _vehicleObject;
 

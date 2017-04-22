@@ -1,7 +1,7 @@
 _vehicleName = _this select 0;
 _vehicleObject = _this select 1;
 
-_vehiclePos = getPosASL _vehicleObject;
+_vehiclePos = getPosATL _vehicleObject;
 _vectorDirection = vectorDir _vehicleObject;
 _vectorUp = vectorUp _vehicleObject;
 
