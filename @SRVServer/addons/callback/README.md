@@ -2,23 +2,24 @@
 
 <h2>Келлбеки</h2>
 <span>
-<p><i>[_from, _to, _isRuin]</i> buildingChanged<sub>Разрушение зданий</sub></p>
-<p><i>[_killed, _killer]</i> entityKilled<sub>Смерть любого юнита, бот-игрок-техника</sub></p>
-<p><i>[_unit_new, _unit_old]</i> entityRespawned<sub>Респавн юнита</sub></p>
-<p><i>[_unit, _id, _uid, _name]</i> handleDisconnect<sub>Дисконнект игрока</sub></p>
-<p><i>[_id, _uid, _name, _jip, _owner]</i> playerConnected<sub>Присоеденение игрока</sub></p>
-<p><i>[_killed, _killer]</i> playerKilled<sub>Смерть игрока</sub></p>
-<p><i>[_killed, _killer]</i> vehicleKilled<sub>Смерить техники</sub></p>
+<p><i>[_from, _to, _isRuin]</i> buildingChanged <sup>Разрушение зданий</sup></p>
+<p><i>[_killed, _killer]</i> entityKilled <sup>Смерть любого юнита, бот-игрок-техника</sup></p>
+<p><i>[_unit_new, _unit_old]</i> entityRespawned <sup>Респавн юнита</sup></p>
+<p><i>[_unit, _id, _uid, _name]</i> handleDisconnect <sup>Дисконнект игрока</sup></p>
+<p><i>[_id, _uid, _name, _jip, _owner]</i> playerConnected <sup>Присоеденение игрока</sup></p>
+<p><i>[_killed, _killer]</i> playerKilled<sup>Смерть игрока </sup></p>
+<p><i>[_killed, _killer]</i> vehicleKilled<sup>Смерить техники </sup></p>
 </span>
 
 <h2>Установить свой код на келлБек</h2>
 <code>{  _YOU_CODE_ } Call SRVCall_fnc_set...</code>
+
 <span>
-<p>SRVCall_fnc_setBuildingChanged<sub>Разрушение зданий</sub></p>
-<p>SRVCall_fnc_setEntityKilled<sub>Смерть любого юнита, бот-игрок-техника</sub></p>
-<p>SRVCall_fnc_setEntityRespawned<sub>Респавн юнита</sub></p>
-<p>SRVCall_fnc_setHandleDisconnect<sub>Дисконнект игрока</sub></p>
-<p>SRVCall_fnc_setPlayerConnected<sub>Присоеденение игрока</sub></p>
-<p>SRVCall_fnc_setPlayerKilled<sub>Смерть игрока</sub></p>
-<p>SRVCall_fnc_setVehicleKilled<sub>Смерить техники</sub></p>
+<p>SRVCall_fnc_setBuildingChanged <sup>Разрушение зданий</sup></p>
+<p>SRVCall_fnc_setEntityKilled <sup>Смерть любого юнита, бот-игрок-техника</sup></p>
+<p>SRVCall_fnc_setEntityRespawned <sup>Респавн юнита</sup></p>
+<p>SRVCall_fnc_setHandleDisconnect <sup>Дисконнект игрока</sup></p>
+<p>SRVCall_fnc_setPlayerConnected <sup>Присоеденение игрока</sup></p>
+<p>SRVCall_fnc_setPlayerKilled <sup>Смерть игрока</sup></p>
+<p>SRVCall_fnc_setVehicleKilled <sup>Смерить техники</sup></p>
 </span>
