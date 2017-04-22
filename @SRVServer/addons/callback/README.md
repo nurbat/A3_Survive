@@ -16,7 +16,9 @@
 {  _YOU_CODE_ } Call SRVCall_fnc_set...
 
 Example:
+
 {  _owner Call SRVRespawn_fnc_connect; } Call SRVCall_fnc_setPlayerConnected
+
 {  deleteVehicle _killed; } Call SRVCall_fnc_setVehicleKilled
 </code>
 
