@@ -14,11 +14,14 @@
 <h2>Установить свой код на келлБек</h2>
 <code>
 {  _YOU_CODE_ } Call SRVCall_fnc_set...
-
+</code>
 Example:
 
-{  _owner Call SRVRespawn_fnc_connect; } Call SRVCall_fnc_setPlayerConnected
-{  deleteVehicle _killed; } Call SRVCall_fnc_setVehicleKilled
+<code>
+{  _owner Call SRVRespawn_fnc_connect; } Call SRVCall_fnc_setPlayerConnected;
+</code>
+<code>
+{  deleteVehicle _killed; } Call SRVCall_fnc_setVehicleKilled;
 </code>
 
 <span>
