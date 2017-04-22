@@ -1,9 +1,10 @@
-//[GroupName, VehicleName, Damage, Positiion, isPersist]
+//[GroupName, VehicleName, Damage, [FuelLevel, AmmoLevel], Positiion, isPersist]
 _uid = _this select 0;
 _className = _this select 1;
 _damage = _this select 2;
-_position = _this select 3;
-_usePersist = _this select 4;
+_rearmLevel = _this select 3;
+_position = _this select 4;
+_usePersist = _this select 5;
 
 // Sanitize position
 if(count _position isEqualTo 2) then { _position pushback 0; };
@@ -32,8 +33,8 @@ _hitpoints = _className call SRVCore_fnc_vehicleGetHitPoints;
 	};
 } forEach _hitpoints;
 
-_vehicle setVehicleAmmoDef (vehiclesAmmoPercent / 100);
-_vehicle setFuel (vehiclesFuelPercent / 100);
+_vehicle setFuel ((_rearmLevel select 0) / 100);
+_vehicle setVehicleAmmoDef ((rearmLevel select 0) / 100);
 
 // Add vehicle to database.
 if(_usePersist) then {

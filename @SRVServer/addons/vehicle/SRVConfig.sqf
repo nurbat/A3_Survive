@@ -15,28 +15,24 @@ disableVehicleThermalGlobal = false; //Отключает тепловизор
 disableVehicleThermal = []; //Отключает тепловизор на выбранной технике
 disableVehicleNVG = []; //Отключает пнв на выбранной технике
 
-//Состояние топлива и вооружения
-vehiclesFuelPercent = 100;
-vehiclesAmmoPercent = 0;
-
 //Спавн техники по установленной точке
 locationRadiusSpawn = 50;
 vehiclesLocation = [
-	//[CountMax, "ID Tag", ["Class1", "Class2"],    [DamageMin, DamageMax],    PersistBool, [Location1, Location2]],
-	//[CountMax, "ID Tag", ["Class1", "Class2"],    Damage,                    PersistBool, [Location1, Location2]]
+	//[CountMax, "ID Tag", ["Class1", "Class2"],    [DamageMin, DamageMax], [FuelLevel, AmmoLevel],	PersistBool, [Location1, Location2]],
+	//[CountMax, "ID Tag", ["Class1", "Class2"],    Damage, 				[FuelLevel, AmmoLevel],	PersistBool, [Location1, Location2]]
 
 ];
 
 //Спавн техники возле дороги
 roadRadiusSpawn = 20;
 vehiclesRandomRoad = [
-	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], PersistBool],
-	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, PersistBool]
+	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], 	[FuelLevel, AmmoLevel], PersistBool],
+	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, 					[FuelLevel, AmmoLevel], PersistBool]
 ];
 
 //Спавн техники рандомно на карте
 vehiclesRandom = [
-	[50, "Bike", ["B_Quadbike_01_F"], 0, true]
-	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], PersistBool],
-	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, PersistBool]
+	[50, "Bike", ["B_Quadbike_01_F"], 0, [100, 0], true]
+	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], 	[FuelLevel, AmmoLevel], PersistBool],
+	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, 					[FuelLevel, AmmoLevel], PersistBool]
 ];

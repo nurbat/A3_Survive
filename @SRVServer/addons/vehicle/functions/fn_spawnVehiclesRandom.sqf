@@ -5,7 +5,8 @@ if (count vehiclesRandom > 0) then
 		_name = _x select 1;
 		_classNames = _x select 2;
 		_damage = _x select 3;
-		_persist = _x select 4;
+		_rearm = _x select 4;
+		_persist = _x select 5;
 
 		_spawnedVehicles = _name Call SRVVehicle_fnc_getVehicleTracker;
 		_debugLoaded = _spawnedVehicles select 1;
@@ -13,7 +14,7 @@ if (count vehiclesRandom > 0) then
 		{
 			_vehicleClassName =	_classNames select (floor (random (count _classNames)));
 			_positionReal = [[(spawnRadius select 0), (spawnRadius select 1)], 25, (spawnRadius select 2), 5, 0 , 1 , 0 , blacklistedPositions] call BIS_fnc_findSafePos;
-			[_name, _vehicleClassName, _damage, _positionReal, _persist] call SRVVehicle_fnc_createVehicle; 
+			[_name, _vehicleClassName, _damage, _rearm, _positionReal, _persist] call SRVVehicle_fnc_createVehicle; 
 			blacklistedPositions append _positionReal;
 			_spawnedVehicles = (_name Call SRVVehicle_fnc_setVehicleTracker);
 		};
