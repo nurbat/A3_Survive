@@ -5,7 +5,6 @@ _direction = _this select 2;
 _usePositionATL = _this select 3;
  
 _vehicleObject = createVehicle [_className, _position, [], 0, "CAN_COLLIDE"];
-_vehicleObject allowDamage false;
 
 
 if ((typeName _direction) isEqualTo "ARRAY") then { _vehicleObject setVectorDirAndUp _direction; }
@@ -13,8 +12,6 @@ else { _vehicleObject setDir _direction; };
 
 if (_usePositionATL) then { _vehicleObject setPosATL _position; }
 else { _vehicleObject setPosASL _position; };
-
-_vehicleObject allowDamage true;
 
 clearBackpackCargoGlobal _vehicleObject;
 clearItemCargoGlobal _vehicleObject;
