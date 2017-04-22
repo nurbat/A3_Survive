@@ -25,12 +25,24 @@ params ["_player"];
                         //================
                         _buildingType = "";
                         posItems = [];
+                        itemMultiple = 0;
                         {
                             buildingGet = _x;
-                            if(buildingGet select 1 == typeOf buildingNow) then {
-                                _buildingType = buildingGet select 0;
-                                if(count (buildingGet select 2) > 0) then { posItems append (buildingNow modelToWorld (buildingGet select 2)); }
-                                else { posItems append (buildingNow buildingPos -1); };
+                            if(count buildingGet == 3) then {
+                                //[type, name, pos]
+                                if(buildingGet select 1 == typeOf buildingNow) then {
+                                    _buildingType = buildingGet select 0;
+                                    if(count (buildingGet select 2) > 0) then { posItems append (buildingNow modelToWorld (buildingGet select 2)); }
+                                    else { posItems append (buildingNow buildingPos -1); };
+                                };
+                            }else {
+                                //[0, type, name, pos]
+                                if(buildingGet select 2 == typeOf buildingNow) then {
+                                    itemMultiple = buildingGet select 0;
+                                    _buildingType = buildingGet select 1;
+                                    if(count (buildingGet select 3) > 0) then { posItems append (buildingNow modelToWorld (buildingGet select 3)); }
+                                    else { posItems append (buildingNow buildingPos -1); };
+                                };                            
                             };
                         } forEach buildingList;
                         //================
@@ -62,7 +74,7 @@ params ["_player"];
 
                         } forEach _lootLoad;
                         //===============
-                        [ [buildingNow, posItems, _itemsLoad], { _this Call SRVLoot_fnc_request; } ] remoteExec ["SRVCore_fnc_execClient", 2];
+                        [ [buildingNow, posItems, _itemsLoad, itemMultiple], { _this Call SRVLoot_fnc_request; } ] remoteExec ["SRVCore_fnc_execClient", 2];
 
 
                     } 

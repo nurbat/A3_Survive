@@ -2,6 +2,7 @@
 _buildingNow = _this select 0;
 _buildingPos = _this select 1;
 _lootTable = _this select 2;
+_itemMultiple = _this select 3;
 
 buildingLootSpots = [];
 weaponSpotsCount = countWeaponLoot;
@@ -11,6 +12,7 @@ weaponSpotsCount = countWeaponLoot;
 } forEach (_buildingNow getVariable ["lootSpots", []]);
 
 _chance = floor(random [0,100,50]);
+_chance = _chance - (_chance * _itemMultiple);
 _spawnedPoint = [];
 _countPointLoot = random countPointLoot;
 while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
@@ -24,7 +26,10 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
     _lootHolder setVehiclePosition [_posNow, [], 0, "CAN_COLLIDE"];
     if(DebugLevel > 2) then { diag_log format["[SRV-LOOT-%1] %2", typeOf _buildingNow, _lootHolder]; };	
 
-    if !(chanceBuilding) then { _chance = floor(random [0,100,50]); };
+    if !(chanceBuilding) then { 
+        _chance = floor(random [0,100,50]); 
+        _chance = _chance - (_chance * _itemMultiple);
+    };
     _itemsNow = [];
     {
         _itemLoad = _x;
