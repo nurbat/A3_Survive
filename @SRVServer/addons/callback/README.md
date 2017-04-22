@@ -8,7 +8,7 @@
 <p><i>[_unit, _id, _uid, _name]</i> handleDisconnect <sup>Дисконнект игрока</sup></p>
 <p><i>[_id, _uid, _name, _jip, _owner]</i> playerConnected <sup>Присоеденение игрока</sup></p>
 <p><i>[_killed, _killer]</i> playerKilled<sup>Смерть игрока </sup></p>
-<p><i>[_killed, _killer]</i> vehicleKilled<sup>Смерить техники </sup></p>
+<p><i>[_killed, _killer]</i> vehicleKilled<sup>Смерть техники </sup></p>
 </span>
 
 <h2>Установить свой код на келлБек</h2>
@@ -21,5 +21,5 @@
 <p>SRVCall_fnc_setHandleDisconnect <sup>Дисконнект игрока</sup></p>
 <p>SRVCall_fnc_setPlayerConnected <sup>Присоеденение игрока</sup></p>
 <p>SRVCall_fnc_setPlayerKilled <sup>Смерть игрока</sup></p>
-<p>SRVCall_fnc_setVehicleKilled <sup>Смерить техники</sup></p>
+<p>SRVCall_fnc_setVehicleKilled <sup>Смерть техники</sup></p>
 </span>
