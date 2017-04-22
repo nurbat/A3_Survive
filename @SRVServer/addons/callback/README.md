@@ -15,15 +15,12 @@
 <code>
 {  _YOU_CODE_ } Call SRVCall_fnc_set...
 </code>
-Example:
-
-<code>
+<p>Example:</p>
+<p><code>
 {  _owner Call SRVRespawn_fnc_connect; } Call SRVCall_fnc_setPlayerConnected;
-</code>
-<code>
 {  deleteVehicle _killed; } Call SRVCall_fnc_setVehicleKilled;
-</code>
-
+</code></p>
+</br>
 <span>
 <p>SRVCall_fnc_setBuildingChanged <sup>Разрушение зданий</sup></p>
 <p>SRVCall_fnc_setEntityKilled <sup>Смерть любого юнита, бот-игрок-техника</sup></p>
