@@ -1,0 +1,10 @@
+name = "SRVClient";
+author = "Hummer";
+picture = "";
+logo = "";
+logoOver = "";
+actionName = "Website";
+action = "http://flygrand.ru";
+tooltip = "SRVClient";
+overview = "SRVClient";
+description = "SRVClient";

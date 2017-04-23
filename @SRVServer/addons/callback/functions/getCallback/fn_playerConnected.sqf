@@ -10,7 +10,10 @@ private["_player"];
 } forEach allPlayers;
 
 //Run CallBack functions
+if !(isNil "_player") then 
 {
-   if(SRVCall_DebugLevel > 2) then { diag_log format["[SRVS-Callback -> Module => PlayerConnected] %1", _x]; };
-   [_player, _x] call BIS_fnc_call;
-} forEach SRVCall_PlayerConnected;
+    {
+        if(SRVCall_DebugLevel > 2) then { diag_log format["[SRVS-Callback -> Module => PlayerConnected] %1", _x]; };
+        [_player, _x] call BIS_fnc_call;
+    } forEach SRVCall_PlayerConnected;
+};
