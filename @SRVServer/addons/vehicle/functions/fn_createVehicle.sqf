@@ -44,7 +44,7 @@ if(_usePersist) then {
 _vehicle setVariable ["IsPersistent", _usePersist];
 
 // Add a debug marker
-if (DebugLevel > 1) then
+if (SRVVehicle_DebugLevel > 1) then
 {
 	SRVVehicle_vehicleLocationCount = SRVVehicle_vehicleLocationCount + 1;
 	_debugMarker = createMarker ["vehicleMarker#"+str SRVVehicle_vehicleLocationCount, _vehicle];
