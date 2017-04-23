@@ -1,6 +1,6 @@
 params ["_player"];
 
-[[SRVLoot_buildingList, SRVLoot_lootTable, SRVLoot_lootGroup, SRVLoot_timeDelay, SRVLoot_distanceLoad, SRVLoot_serverLoad], {
+[[SRVLoot_buildingList, SRVLoot_lootTable, SRVLoot_lootGroup, SRVLoot_timeDelay, SRVLoot_distanceLoad, SRVLoot_serverLoad, SRVLoot_vehicleLootable], {
     _this spawn {
         buildingList = _this select 0;
         lootTable = _this select 1;
@@ -8,6 +8,7 @@ params ["_player"];
         timeDelay = _this select 3;
         distanceLoad = _this select 4;
         serverLoad = _this select 5;
+        vehicleLootable = _this select 6;
 
         
         while { alive player } do {
@@ -15,7 +16,7 @@ params ["_player"];
             SRVLoot_continue = true;            
             if !(serverLoad) then 
             {
-                if(!SRVLoot_vehicleLootable and (vehicle player) != player) then { SRVLoot_continue = false };
+                if(!vehicleLootable and (vehicle player) != player) then { SRVLoot_continue = false };
                 if(SRVLoot_continue) then 
                 {
                     {
@@ -94,7 +95,7 @@ params ["_player"];
             } 
             else 
             {
-                if(!SRVLoot_vehicleLootable and (vehicle player) != player) then { SRVLoot_continue = false };
+                if(!vehicleLootable and (vehicle player) != player) then { SRVLoot_continue = false };
                 if(SRVLoot_continue) then 
                 {
                     [ player, { _this Call SRVLoot_fnc_calculate; } ] remoteExec ["SRVCore_fnc_execClient", 2];
