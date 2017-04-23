@@ -1,4 +1,5 @@
 SRVCall_DebugLevel = 3;
+"SRVCall" Call SRVCall_fnc_setSRVModule;
 SRVCall_PlayerConnected     = [];
 SRVCall_HandleDisconnect    = [];
 SRVCall_EntityKilled        = [];

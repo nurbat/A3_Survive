@@ -34,6 +34,7 @@ class CfgFunctions
 			class setEntityRespawned {};
 			class setHandleDisconnect {};
 			class setPlayerConnected {};
+			class setSRVModule {};
 		}	
 		class init
 		{

@@ -71,14 +71,15 @@ class CfgRemoteExec
 {
     class Functions
     {
-        mode = 2;//1
+        mode = 1;//1
         jip = 0;
-        #include "SRV\callback\remoteExec.cpp"
+        class bis_fnc_execvm { allowedTargets = 0; };
+        class srvcore_fnc_execClient { allowedTargets = 2; };
     };
 
     class Commands
     {
-		mode = 2;//0
+		mode = 0;//0
 		jip = 0;
     };
 };
