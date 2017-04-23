@@ -39,6 +39,6 @@ if(_vehicleDatabase > 0) then {
     _vehicleObject Call SRVCore_fnc_getEveryContainer,
     _vehicleObject Call SRVCore_fnc_getVehicleAmmo,
     _vehicleDatabase];//UID %31
-    if(DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] %1", _updatestr]; };
+    if(SRVVehicle_DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] %1", _updatestr]; };
     [2, _updatestr] call SRVDB_fnc_query;
 };

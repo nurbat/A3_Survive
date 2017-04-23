@@ -1,7 +1,7 @@
 #include "\vehicle\SRVConfig.sqf";
-blacklistedPositions = [];
-spawnedVehicleTracker = [];
-vehicleLocationCount = 0;
+SRVVehicle_blacklistedPositions = [];
+SRVVehicle_spawnedVehicleTracker = [];
+SRVVehicle_vehicleLocationCount = 0;
 
 diag_log format["================="];
 diag_log format["VEHICLE LOAD MODULE"];

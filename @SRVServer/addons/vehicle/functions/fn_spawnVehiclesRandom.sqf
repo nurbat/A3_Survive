@@ -1,4 +1,4 @@
-if (count vehiclesRandom > 0) then
+if (count SRVVehicle_vehiclesRandom > 0) then
 {
 	{
 		_numToSpawn = _x select 0;
@@ -13,12 +13,12 @@ if (count vehiclesRandom > 0) then
 		while { (_spawnedVehicles select 1) < _numToSpawn } do
 		{
 			_vehicleClassName =	_classNames select (floor (random (count _classNames)));
-			_positionReal = [[(spawnRadius select 0), (spawnRadius select 1)], 25, (spawnRadius select 2), 5, 0 , 1 , 0 , blacklistedPositions] call BIS_fnc_findSafePos;
+			_positionReal = [[(SRVVehicle_spawnRadius select 0), (SRVVehicle_spawnRadius select 1)], 25, (SRVVehicle_spawnRadius select 2), 5, 0 , 1 , 0 , SRVVehicle_blacklistedPositions] call BIS_fnc_findSafePos;
 			[_name, _vehicleClassName, _damage, _rearm, _positionReal, _persist] call SRVVehicle_fnc_createVehicle; 
-			blacklistedPositions append _positionReal;
+			SRVVehicle_blacklistedPositions append _positionReal;
 			_spawnedVehicles = (_name Call SRVVehicle_fnc_setVehicleTracker);
 		};
 		_debugCreate = (_spawnedVehicles select 1) - _debugLoaded;
-		if(DebugLevel > 0) then { diag_log format["[SRV-Vehicle-%1] LOAD:%2 || CREATE:%3", _name, _debugLoaded, _debugCreate]; };	
-	} forEach vehiclesRandom;
+		if(SRVVehicle_DebugLevel > 1) then { diag_log format["[SRV-Vehicle] %1: %2 - %3 Created", _name, _debugLoaded, _debugCreate]; };	
+	} forEach SRVVehicle_vehiclesRandom;
 };

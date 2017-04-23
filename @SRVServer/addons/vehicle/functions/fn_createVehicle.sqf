@@ -46,8 +46,8 @@ _vehicle setVariable ["IsPersistent", _usePersist];
 // Add a debug marker
 if (DebugLevel > 1) then
 {
-	vehicleLocationCount = vehicleLocationCount + 1;
-	_debugMarker = createMarker ["vehicleMarker#"+str vehicleLocationCount, _vehicle];
+	SRVVehicle_vehicleLocationCount = SRVVehicle_vehicleLocationCount + 1;
+	_debugMarker = createMarker ["vehicleMarker#"+str SRVVehicle_vehicleLocationCount, _vehicle];
 	_debugMarker setMarkerColor "ColorOrange";
 	_debugMarker setMarkerType "mil_dot_noShadow";
 };

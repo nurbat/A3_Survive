@@ -2,7 +2,7 @@ waitUntil { !(isNil { Call SRVDB_fnc_loaded }) };
 
 { _killed Call SRVVehicle_fnc_delete; } Call SRVCall_fnc_setVehicleKilled;
 
-if(DebugLevel > 0) then { diag_log format["====[VEHICLE LOADING]===="]; };
+if(SRVVehicle_DebugLevel > 0) then { diag_log format["====[VEHICLE LOADING]===="]; };
 _vehicleLoaded = Call SRVVehicle_fnc_load;
 if !(isNil "_vehicleLoaded") then 
 {
@@ -26,7 +26,7 @@ if !(isNil "_vehicleLoaded") then
         
         _vehicleObject = ([_vehicleClass, _vehiclePosition, [_vehicleDirection, _vehicleUp], true] Call SRVVehicle_fnc_objectCreate);
 
-        if(DebugLevel > 2) then { diag_log format["[SRVS-VEHICLE] DETAIL %1", _vehicleHitpoints]; };
+        if(SRVVehicle_DebugLevel > 2) then { diag_log format["[SRVS-VEHICLE] DETAIL %1", _vehicleHitpoints]; };
         _vehicleObject setVariable ["IsPersistent", true, true];
         _vehicleObject setVariable ["DatabaseID", _vehicleDatabase, true];
         _vehicleObject setVariable ["OwnerName", _vehicleName, true];
@@ -50,3 +50,7 @@ if !(isNil "_vehicleLoaded") then
 Call SRVVehicle_fnc_spawnVehiclesLocation;
 Call SRVVehicle_fnc_spawnVehiclesRoad;
 Call SRVVehicle_fnc_spawnVehiclesRandom;
+
+{
+	if(SRVVehicle_DebugLevel > 0) then { diag_log format["[SRV-Vehicle] %1", _x]; };	
+} forEach SRVVehicle_spawnedVehicleTracker;

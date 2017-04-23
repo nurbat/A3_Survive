@@ -5,7 +5,6 @@ _direction = _this select 2;
 _usePositionATL = _this select 3;
  
 _vehicleObject = createVehicle [_className, _position, [], 0, "CAN_COLLIDE"];
-_vehicleObject addEventHandler ["GetIn", { _this enableSimulation true; }];
 
 if ((typeName _direction) isEqualTo "ARRAY") then { _vehicleObject setVectorDirAndUp _direction; }
 else { _vehicleObject setDir _direction; };
@@ -18,7 +17,7 @@ clearItemCargoGlobal _vehicleObject;
 clearMagazineCargoGlobal _vehicleObject;
 clearWeaponCargoGlobal _vehicleObject;
 
-if (_className in disableVehicleNVG && !disableVehicleNVGGlobal) then { _vehicleObject disableNVGEquipment true; };
-if (_className in disableVehicleThermal && !disableVehicleThermalGlobal) then { _vehicleObject disableTIEquipment true; };
+if (_className in SRVVehicle_disableVehicleNVG && !SRVVehicle_disableVehicleNVGGlobal) then { _vehicleObject disableNVGEquipment true; };
+if (_className in SRVVehicle_disableVehicleThermal && !SRVVehicle_disableVehicleThermalGlobal) then { _vehicleObject disableTIEquipment true; };
 
 _vehicleObject
