@@ -12,7 +12,6 @@ else { _vehicleObject setDir _direction; };
 
 if (_usePositionATL) then { _vehicleObject setPosATL _position; }
 else { _vehicleObject setPosASL _position; };
-_vehicleObject enableSimulation false;
 
 clearBackpackCargoGlobal _vehicleObject;
 clearItemCargoGlobal _vehicleObject;

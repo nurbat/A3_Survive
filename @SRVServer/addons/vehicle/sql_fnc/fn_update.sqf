@@ -1,14 +1,10 @@
-_vehicleObject = _this select 0;
+_vehicleObject = _this;
 
 _vehicleUID = _vehicleObject getVariable["OwnerName", ""];
 _vehicleDatabase = _vehicleObject getVariable["DatabaseID", 0];
 
 if(_vehicleDatabase > 0) then {
     _vehiclePos = getPosATL _vehicleObject;
-    _vectorDirection = vectorDir _vehicleObject;
-    _vectorUp = vectorUp _vehicleObject;
-
-    _vehiclePos = getPosASL _vehicleObject;
     _vectorDirection = vectorDir _vehicleObject;
     _vectorUp = vectorUp _vehicleObject;
 

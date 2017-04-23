@@ -8,4 +8,4 @@ _vehicleObject setVariable["DatabaseID", _vehicleDatabase, true];
 _vehicleObject setVariable["OwnerName", _vehicleUID, true];
 _vehicleObject setVariable["IsPersistent", true, true];
 
-_vehicleObject addEventHandler ["GetOut", { _this call SRVVehicle_fnc_update}];
+_vehicleObject addEventHandler ["GetOut", { (_this select 0) call SRVVehicle_fnc_update}];
