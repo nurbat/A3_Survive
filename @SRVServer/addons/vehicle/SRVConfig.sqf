@@ -6,7 +6,8 @@
 
 SRVVehicle_DebugLevel = 1;
 
-SRVVehicle_spawnRadius = [7000, 7000, 7000];//[CenterX, CenterY, Radius]
+//Chernarus = [7000, 7000, 7000];
+SRVVehicle_spawnRadius = [16640.236, 16497.094, 7500];//[CenterX, CenterY, Radius]
 
 //-----------------------------
 SRVVehicle_disableVehicleNVGGlobal = false; //Отключает пнв
@@ -32,7 +33,7 @@ SRVVehicle_vehiclesRandomRoad = [
 
 //Спавн техники рандомно на карте
 SRVVehicle_vehiclesRandom = [
-	[50, "Bike", ["B_Quadbike_01_F"], 0, [100, 0], true]
+	[100, "Bike", ["B_Quadbike_01_F"], 0, [100, 0], true]
 	//[CountMax, "ID Tag", ["Class1", "Class2"], [DamageMin, DamageMax], 	[FuelLevel, AmmoLevel], PersistBool],
 	//[CountMax, "ID Tag", ["Class1", "Class2"], Damage, 					[FuelLevel, AmmoLevel], PersistBool]
 ];
