@@ -1,8 +1,8 @@
 name = "SRVClient";
 author = "Hummer";
-picture = "";
-logo = "";
-logoOver = "";
+picture = "survive.paa";
+logo = "survive.paa";
+logoOver = "survive.paa";
 actionName = "Website";
 action = "http://flygrand.ru";
 tooltip = "SRVClient";
