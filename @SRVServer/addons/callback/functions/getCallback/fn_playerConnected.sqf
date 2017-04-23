@@ -1,5 +1,5 @@
 params ["_id", "_uid", "_name", "_jip", "_owner"];
-if(DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => PlayerConnected] %1", _name]; };
+if(SRVCall_DebugLevel > 1) then { diag_log format["[SRVS-Callback -> Get => PlayerConnected] %1", _name]; };
 
 //Create Player_Object
 private["_player"];
@@ -11,6 +11,6 @@ private["_player"];
 
 //Run CallBack functions
 {
-   if(DebugLevel > 2) then { diag_log format["[SRVS-Callback -> Module => PlayerConnected] %1", _x]; };
+   if(SRVCall_DebugLevel > 2) then { diag_log format["[SRVS-Callback -> Module => PlayerConnected] %1", _x]; };
    [_player, _x] call BIS_fnc_call;
-} forEach PlayerConnectedCallback;
+} forEach SRVCall_PlayerConnected;
