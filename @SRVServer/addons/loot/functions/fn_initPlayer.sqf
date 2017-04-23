@@ -1,6 +1,6 @@
 params ["_player"];
 
-[[buildingList, lootTable, lootGroup, timeDelay, distanceLoad, serverLoad], {
+[[SRVLoot_buildingList, SRVLoot_lootTable, SRVLoot_lootGroup, SRVLoot_timeDelay, SRVLoot_distanceLoad, SRVLoot_serverLoad], {
     _this spawn {
         buildingList = _this select 0;
         lootTable = _this select 1;

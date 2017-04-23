@@ -1,16 +1,16 @@
-countPointLoot = 5;//Max, Количество точек спавна
-countItemLoot = 5;//Max || Колиство предметов на точке, кроме оружия
-countMagazineLoot = [2, 3];//[Min, Max] || Количество патронов к оружию
-countWeaponLoot = 3;//Max || Максимальное количество оружия на здание
-chanceBuilding = true;//Использовать процент здания на весь лут внутри
-DebugLevel = 0;
+SRVLoot_countPointLoot = 5;//Max, Количество точек спавна
+SRVLoot_countItemLoot = 5;//Max || Колиство предметов на точке, кроме оружия
+SRVLoot_countMagazineLoot = [2, 3];//[Min, Max] || Количество патронов к оружию
+SRVLoot_countWeaponLoot = 3;//Max || Максимальное количество оружия на здание
+SRVLoot_chanceBuilding = true;//Использовать процент здания на весь лут внутри
+SRVLoot_DebugLevel = 0;
 
-timeDelay = 60;
-timeLifeLoot = 120;
-distanceLoad = 300;
-serverLoad = false; //Вычесления на сервере (true) / Вычесления на клиенте (false)
+SRVLoot_timeDelay = 60;
+SRVLoot_timeLifeLoot = 120;
+SRVLoot_distanceLoad = 300;
+SRVLoot_serverLoad = false; //Вычесления на сервере (true) / Вычесления на клиенте (false)
 
-lootTable = [
+SRVLoot_lootTable = [
     ["EDIT_TYPE", 
         [
             [0, "Arma3_RocketLauncher"],
@@ -34,7 +34,7 @@ lootTable = [
     ]
 ];
 
-lootGroup =
+SRVLoot_lootGroup =
 [
 
     //Rocket Launcher

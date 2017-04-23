@@ -1,7 +1,7 @@
 //[Multiple, "Type", "Name", [positions]]
 //OR
 //["Type", "Name", [positions]]
-buildingList = [
+SRVLoot_buildingList = [
 	["EDIT_TYPE","Land_Metal_Shed_F",[]],
 	["EDIT_TYPE","Land_u_Addon_01_V1_F",[]],
 	["EDIT_TYPE","Land_i_Stone_HouseBig_V1_F",[]],
@@ -269,7 +269,7 @@ buildingList = [
 {
     if(count (_x buildingPos -1) > 0) then 
     {
-        buildingList pushBackUnique ["EDIT_TYPE", typeOf _x, []];
+        SRVLoot_buildingList pushBackUnique ["EDIT_TYPE", typeOf _x, []];
     }
 } forEach nearestObjects [[0,0,0], ["House"], 50000];
 */

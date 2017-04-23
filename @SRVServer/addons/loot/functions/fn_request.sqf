@@ -5,7 +5,7 @@ _lootTable = _this select 2;
 _itemMultiple = _this select 3;
 
 buildingLootSpots = [];
-weaponSpotsCount = countWeaponLoot;
+weaponSpotsCount = SRVLoot_countWeaponLoot;
 
 {
     deleteVehicle _x;
@@ -14,8 +14,8 @@ weaponSpotsCount = countWeaponLoot;
 _chance = floor(random [0,100,50]);
 _chance = _chance - (_chance * _itemMultiple);
 _spawnedPoint = [];
-_countPointLoot = random countPointLoot;
-while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
+_countPointLoot = random SRVLoot_countPointLoot;
+while { (count _spawnedPoint < SRVLoot_countPointLoot) and (count _buildingPos) > 0 } do
 {
     _posNow = _buildingPos select (floor (random (count _buildingPos)));
     _spawnedPoint pushBack _posNow;
@@ -24,7 +24,7 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
     _lootHolder = createVehicle ["GroundWeaponHolder", _posNow, [], 0, "CAN_COLLIDE"];
     _lootHolder setDir (random 360);
     _lootHolder setVehiclePosition [_posNow, [], 0, "CAN_COLLIDE"];
-    if(DebugLevel > 2) then { diag_log format["[SRV-LOOT-%1] %2", typeOf _buildingNow, _lootHolder]; };	
+    if(SRVLoot_DebugLevel > 2) then { diag_log format["[SRV-LOOT-%1] %2", typeOf _buildingNow, _lootHolder]; };	
 
     if !(chanceBuilding) then { 
         _chance = floor(random [0,100,50]); 
@@ -37,7 +37,7 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
     } forEach _lootTable;
 
     _spawnedItemClassNames = [];
-    while { count _spawnedItemClassNames < countItemLoot && count _itemsNow > 0 } do {
+    while { count _spawnedItemClassNames < SRVLoot_countItemLoot && count _itemsNow > 0 } do {
         _itemName = selectRandom _itemsNow;
         _typeItem = _itemName call SRVCore_fnc_itemType;
         switch (_typeItem) do
@@ -50,7 +50,7 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
                 _magazineClassNames = getArray(configFile >> "CfgWeapons" >> _itemName >> "magazines");
                 if (count(_magazineClassNames) > 0) then {
                 _magazineClassName = selectRandom _magazineClassNames;
-                    _numberOfMagazines = (countMagazineLoot select 0) + floor(random (countMagazineLoot select 1)); 
+                    _numberOfMagazines = (SRVLoot_countMagazineLoot select 0) + floor(random (SRVLoot_countMagazineLoot select 1)); 
                     _lootHolder addMagazineCargoGlobal [_magazineClassName, _numberOfMagazines];
                     _spawnedItemClassNames pushBack _magazineClassName;
                 };
@@ -65,4 +65,4 @@ while { (count _spawnedPoint < countPointLoot) and (count _buildingPos) > 0 } do
 };
 
 _buildingNow setVariable["lootSpots", buildingLootSpots, true];
-_buildingNow setVariable["lootTime", time + timeLifeLoot, true];
+_buildingNow setVariable["lootTime", time + SRVLoot_timeLifeLoot, true];

@@ -29,7 +29,7 @@
                                     else { posItems append (buildingNow buildingPos -1); };
                                 };                            
                             };
-                        } forEach buildingList;
+                        } forEach SRVLoot_buildingList;
                         //================
                         if !(count posItems > 0) throw false;    //BREAK
 
@@ -41,7 +41,7 @@
                             if(lootNow select 0 == _buildingType) then {
                                 _lootLoad = lootNow select 1;
                             };
-                        } forEach lootTable;
+                        } forEach SRVLoot_lootTable;
 
                         //Загрузка Груп_Предметов для текущего здания
                         //===============
@@ -55,7 +55,7 @@
                                 } else {
                                     _itemsLoad pushBack lootNow;
                                 };
-                            } forEach lootGroup;
+                            } forEach SRVLoot_lootGroup;
 
                         } forEach _lootLoad;
                         //===============
@@ -68,4 +68,4 @@
 
                     };
 
-                } forEach nearestObjects [_this, (["house"]), distanceLoad];                        //===============
+                } forEach nearestObjects [_this, (["house"]), SRVLoot_distanceLoad];                        //===============

@@ -27,6 +27,6 @@ _vectorDirection,
 _vectorUp,
 _vehicleObject Call SRVCore_fnc_getVehicleAmmo
 ];
-if(DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] Save %1", typeOf _vehicleObject]; };
+if(DebugLevel > 0) then { diag_log format["[SRVS-VEHICLE] Save %1", typeOf _vehicleObject]; };
 [0, _insertstr] call SRVDB_fnc_query;
 (([0, "SELECT LAST_INSERT_ID()"] call SRVDB_fnc_query) select 0) select 0;

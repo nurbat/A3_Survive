@@ -7,5 +7,5 @@ _this setVariable["IsPersistent", false, true];
 _this removeAllEventHandlers "GetOut";
 
 
-if(DebugLevel > 1) then { diag_log format["[SRVS-VEHICLE] %1", _insertstr]; };
+if(DebugLevel > 0) then { diag_log format["[SRVS-VEHICLE] %1", _insertstr]; };
 [0, _insertstr] call SRVDB_fnc_query;
