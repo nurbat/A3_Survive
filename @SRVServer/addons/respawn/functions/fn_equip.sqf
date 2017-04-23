@@ -10,4 +10,4 @@
 			case "Item":		{ _player linkItem _x; };
 			default 			{ _player addItem _x; };
 		};
-	} forEach loadOut;
+	} forEach SRVRespawn_loadOut;

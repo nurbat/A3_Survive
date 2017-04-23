@@ -1,7 +1,7 @@
 params ["_player"];
 
-    _position = (selectRandom spawnPoint) Call SRVCore_fnc_circle;
-	[[_position, spawnHeight], { 
+    _position = (selectRandom SRVRespawn_spawnPoint) Call SRVCore_fnc_circle;
+	[[_position, SRVRespawn_spawnHeight], { 
         removeAllWeapons player;
         removeAllAssignedItems player;
         removeGoggles player;
@@ -22,4 +22,4 @@ params ["_player"];
 waitUntil { _player getVariable ["loadedIn", false] };
 _player Call SRVRespawn_fnc_equip;
 [_player, getPlayerUID _player] Call SRVRespawn_fnc_update;
-if(spawnDebug) then { diag_log format["[SRVS-RESPAWN] Finish: %1", name _player]; };
+if(SRVRespawn_DebugLevel > 2) then { diag_log format["[SRVS-RESPAWN] Finish: %1", name _player]; };

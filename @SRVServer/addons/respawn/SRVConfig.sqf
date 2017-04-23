@@ -1,7 +1,7 @@
-﻿spawnDebug = true;
-saveDelay = 300; // Seconds 60 * 5 Min = 300
-spawnHeight = 1000; //0 - disabled
-spawnPoint = [
+﻿SRVRespawn_DebugLevel = 3;
+SRVRespawn_saveDelay = 300; // Seconds 60 * 5 Min = 300
+SRVRespawn_spawnHeight = 1000; //0 - disabled
+SRVRespawn_spawnPoint = [
 	[1740, 2220, 300],
 	[3660, 2450, 500],
 	[6660, 2620, 500],
@@ -14,7 +14,7 @@ spawnPoint = [
 	[12000, 9100, 500]
 ];
 
-loadOut = [
+SRVRespawn_loadOut = [
 	"B_Parachute",
 	"U_B_CombatUniform_mcam",
 	"srifle_EBR_ARCO_pointer_snds_F",
@@ -25,7 +25,3 @@ loadOut = [
 	"ItemCompass",
 	"ItemWatch"
 ];
-
-//DONT WORKED
-syncInventory = false;//Синхранизировать инвентарь при открытии?
-saveInventory = false;//Сохранять инвентарь при закоытии?

@@ -26,7 +26,7 @@ while { (count _spawnedPoint < SRVLoot_countPointLoot) and (count _buildingPos) 
     _lootHolder setVehiclePosition [_posNow, [], 0, "CAN_COLLIDE"];
     if(SRVLoot_DebugLevel > 2) then { diag_log format["[SRV-LOOT-%1] %2", typeOf _buildingNow, _lootHolder]; };	
 
-    if !(chanceBuilding) then { 
+    if !(SRVLoot_chanceBuilding) then { 
         _chance = floor(random [0,100,50]); 
         _chance = _chance - (_chance * _itemMultiple);
     };

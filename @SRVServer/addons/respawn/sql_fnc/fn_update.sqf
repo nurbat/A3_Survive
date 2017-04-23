@@ -70,5 +70,5 @@ vest _player,//Vest %25
 (getWeaponCargo vestContainer _player) Call SRVRespawn_fnc_getCargo,//Vest Items %28
 
 _uid];//UID %29
-if(spawnDebug) then { diag_log format["[SRVS-SPAWN] %1", _updatestr]; };
+if(SRVRespawn_DebugLevel > 2) then { diag_log format["[SRVS-SPAWN] %1", _updatestr]; };
 [2, _updatestr] call SRVDB_fnc_query;
