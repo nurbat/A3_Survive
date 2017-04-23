@@ -3,6 +3,7 @@ SRVLoot_countItemLoot = 5;//Max || Колиство предметов на то
 SRVLoot_countMagazineLoot = [2, 3];//[Min, Max] || Количество патронов к оружию
 SRVLoot_countWeaponLoot = 3;//Max || Максимальное количество оружия на здание
 SRVLoot_chanceBuilding = true;//Использовать процент здания на весь лут внутри
+SRVLoot_vehicleLootable = false;//Создавать лут, находясь в машине
 SRVLoot_DebugLevel = 0;
 
 SRVLoot_timeDelay = 60;
