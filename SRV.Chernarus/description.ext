@@ -73,7 +73,7 @@ class CfgRemoteExec
     {
         mode = 2;//1
         jip = 0;
-        #include "callback\remoteExec.cpp"
+        #include "SRV\callback\remoteExec.cpp"
     };
 
     class Commands

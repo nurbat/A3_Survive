@@ -1,2 +1,2 @@
-﻿[] execVM "callback\setup.sqf";
+﻿[] execVM "SRV\callback\setup.sqf";
 

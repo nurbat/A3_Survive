@@ -5,7 +5,8 @@ _direction = _this select 2;
 _usePositionATL = _this select 3;
  
 _vehicleObject = createVehicle [_className, _position, [], 0, "CAN_COLLIDE"];
-
+_vehicleObject enableSimulation false;
+_vehicleObject addEventHandler ["GetIn", { _this enableSimulation true; }];
 
 if ((typeName _direction) isEqualTo "ARRAY") then { _vehicleObject setVectorDirAndUp _direction; }
 else { _vehicleObject setDir _direction; };
