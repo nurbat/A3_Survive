@@ -19,7 +19,7 @@ _player = _this select 1;
     _playerDamage =         _this select 2;
     _playerDir =            _this select 3;
     _playerPos =            _this select 4;
-    _playerHit =            _this select 5;
+    playerHit =            _this select 5;
     _playerAssignedItems =  _this select 6;
     _playerBackpack =       _this select 7;
     _playerBackpackItems =  _this select 8;
@@ -49,7 +49,8 @@ _player = _this select 1;
     player setPosASL _playerPos;
     player setDir _playerDir;
 
-    [player, _playerHit] Call SRVCore_fnc_setAllHitPointsDamage;
+
+    [ [player, playerHit], { _this Call SRVCore_fnc_setAllHitPointsDamage; } ] remoteExec ["SRVCore_fnc_execClient", 2];
 
     //assignedItems
     if !(_playerAssignedItems isEqualTo []) then
