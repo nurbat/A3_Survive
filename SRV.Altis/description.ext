@@ -74,7 +74,7 @@ class CfgRemoteExec
         mode = 1;//1
         jip = 0;
         class bis_fnc_execvm { allowedTargets = 0; };
-        class srvcore_fnc_execClient { allowedTargets = 2; };
+        class srvcore_fnc_execcommand { allowedTargets = 2; };
     };
 
     class Commands

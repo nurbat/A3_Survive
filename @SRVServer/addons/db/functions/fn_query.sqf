@@ -7,6 +7,7 @@ First Edit: 19.3.2016
 Params:
 0 - Async mode (Anything will do to this script)
 1 - Predefined statement name and its params, in format "exampleQuery:input:input:input"
+//if (SRVDB_cfg_getid) exitWith { (([0, "SELECT LAST_INSERT_ID()"] call SRVDB_fnc_query) select 0) select 0; };
 */
 
 private ["_quer", "_array"];

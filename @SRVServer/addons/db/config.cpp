@@ -4,7 +4,7 @@ class CfgPatches
 	{
 		projectName="SQL";
 		author="Hummer";
-		version="2017.4.15";
+		version="";
 		requiredAddons[] = {};
 		units[] = {};
 	};
@@ -21,7 +21,7 @@ class CfgFunctions
 			class loaded {};
 			class preInit {preInit = 1;};
 			class query {};
-			class strip {};
+			class queryBuild {};
 		};
 	};
 };

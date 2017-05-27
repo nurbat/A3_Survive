@@ -4,7 +4,7 @@ class CfgPatches
 	{
 		projectName="Core";
 		author="Hummer";
-		version="2017.4.15";
+		version="";
 		requiredAddons[] = { };
 		units[] = {};
 	};
@@ -14,39 +14,34 @@ class CfgFunctions
 {
 	class SRVCore
 	{
-		class cargo
+		class cron
 		{
-			file = "\server_core\cargo";
-			class setItemCargo {};
-			class getItemCargo {};
-			
-			class getEveryContainer {};
-			class setEveryContainer {};
-
-			class getVehicleAmmo {};
-			class setVehicleAmmo {};
-			
-			class setWeaponsItemsCargo {};
+			file = "\server_core\cron";
+			class createJob		{};
+			class deleteJob		{};
 		};
-		class server
+		class eventHandler
 		{
-			file = "\server_core\server";
-			class preInit {preInit = 1;};
-			class postInit {postInit = 1;};
-			class execClient {};
-			class execServer {};
+			file = "\server_core\event\handlers";
+			class eventNpcKilled 		{};
+			class eventPlayerKilled 	{};
+			class eventVehicleKilled 	{};	
+			class eventCreateLocal		{};	
+		};
+		class event
+		{
+			file = "\server_core\event";
+			class runEvent {};
+			class createEvent {};
 		};
 		class functions
 		{
 			file = "\server_core\functions";
-			class circle {};
-			class itemType {};
-			class vehicleGetHitPoints {};
-			class findRoadPosition {};
-			class setMagazinesAmmoCargo {};
-
-			class getAllHitPointsDamage {};
-			class setAllHitPointsDamage {};
+			class preInit {preInit = 1;};
+			class postInit {postInit = 1;};
+			class execCommand {};
+			class loadModule {};
+			class serverLock {};
 		};
 	};
 };

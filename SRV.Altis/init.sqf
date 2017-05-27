@@ -1,1 +1,1 @@
-﻿execVM "SRV\loadModules.sqf";
+﻿

@@ -1,32 +1,30 @@
-_vehicleName = _this select 0;
-_vehicleObject = _this select 1;
+/*
+ * Arguments:
+ * 0: Owner <STRING >
+ * 1: Vehicle <OBJECT>
+ *
+ * Return Value:
+ * 0: UID <STRING>
+ *
+*/
+params ["_vehicleOwner", "_vehicleObject"];
 
-_vehiclePos = getPosATL _vehicleObject;
-_vectorDirection = vectorDir _vehicleObject;
-_vectorUp = vectorUp _vehicleObject;
+if(_vehicleObject getVariable["UID", ""] != "") exitWith { };
+private _SRVVehicle_var_uid = Call SRVTools_fnc_UID;
 
-_insertstr = format["INSERT INTO vehicle SET 
-name = '%1', 
-class = '%2',
-is_locked = '%3',
-fuel = '%4',
-damage = '%5',
-hitpoints = '%6',
-position = '%7',
-direction = '%8',
-up = '%9',
-ammo = '%10'",
-_vehicleName, 
-typeOf _vehicleObject,
-locked _vehicleObject,
-fuel _vehicleObject,
-damage _vehicleObject,
-_vehicleObject Call SRVCore_fnc_getAllHitPointsDamage,
-_vehiclePos,
-_vectorDirection,
-_vectorUp,
-_vehicleObject Call SRVCore_fnc_getVehicleAmmo
-];
-if(SRVVehicle_DebugLevel > 0) then { diag_log format["[SRVS-VEHICLE] Save %1", typeOf _vehicleObject]; };
-[0, _insertstr] call SRVDB_fnc_query;
-(([0, "SELECT LAST_INSERT_ID()"] call SRVDB_fnc_query) select 0) select 0;
+["INSERT INTO vehicle SET",
+    [
+        ["name",        _vehicleOwner],
+        ["class",       typeOf _vehicleObject],
+        ["is_locked",   locked _vehicleObject],
+        ["fuel",        fuel _vehicleObject],
+        ["damage",      damage _vehicleObject],
+        ["cargo",       _vehicleObject Call SRVTools_fnc_getVehicleCargo],
+        ["hitpoints",   _vehicleObject Call SRVTools_fnc_getPointsDamage],
+        ["position",    (getPosATL _vehicleObject)],
+        ["direction",   [vectorDir _vehicleObject, vectorUp _vehicleObject]],
+        ["ammo",        _vehicleObject Call SRVTools_fnc_getVehicleAmmo],
+        ["uid",         _SRVVehicle_var_uid]
+    ]
+] Call SRVDB_fnc_queryBuild;
+_SRVVehicle_var_uid;

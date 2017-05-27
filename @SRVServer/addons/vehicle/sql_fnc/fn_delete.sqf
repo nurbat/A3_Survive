@@ -1,15 +1,22 @@
-_vehicleDatabase = _this getVariable["DatabaseID", 0];
+/*
+ * Arguments:
+ * 0: Vehicle <OBJECT>
+ *
+ * Return Value:
+ * None
+ *
+ */
+params ["_vehicleObject"];
+private _SRVVehicle_var_uid = (_vehicleObject getVariable["UID", ""]);
 
-if(_vehicleDatabase > 0) then 
-{
-    _insertstr = format["DELETE FROM vehicle WHERE id = %1", _vehicleDatabase];
+if(_SRVVehicle_var_uid == "") exitWith { };
+["DELETE FROM vehicle WHERE",
+    [
+        ["uid", _SRVVehicle_var_uid]
+    ]
+] call SRVDB_fnc_queryBuild;
 
-    _this setVariable["DatabaseID", 0, true];
-    _this setVariable["OwnerName", "", true];
-    _this setVariable["IsPersistent", false, true];
-    _this removeAllEventHandlers "GetOut";
-
-
-    if(SRVVehicle_DebugLevel > 0) then { diag_log format["[SRVS-VEHICLE] %1", _insertstr]; };
-    [0, _insertstr] call SRVDB_fnc_query;
-};
+_vehicleObject setVariable["UID", "", true];
+_vehicleObject setVariable["OWNER", "", true];
+_vehicleObject setVariable["IsPersistent", false, true];
+_vehicleObject removeAllEventHandlers "GetOut";

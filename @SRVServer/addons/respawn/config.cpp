@@ -5,7 +5,7 @@ class CfgPatches
 		projectName="Respawn";
 		author="Hummer";
 		version="2017.4.15";
-		requiredAddons[] = { "SRVCore", "SRVDB", "SRVCall" };
+		requiredAddons[] = { "SRVCore", "SRVDB" };
 		units[] = {};
 	};
 };
@@ -14,33 +14,32 @@ class CfgFunctions
 {
 	class SRVRespawn
 	{
-		class functions
+		class client
 		{
-			file = "\respawn\functions";
+			file = "\respawn\client";
+			class loadScreen {};
+			class connected {};
+		}
+		class fnc
+		{
+			file = "\respawn\fnc";
 			class preInit {preInit = 1;};
 			class postInit {postInit = 1;};
-			class connected {};
-			class createBambi {};
-			class died {};
-			class disconnect {};
-			class equip {};
-			class init {};
-			class load_user {};
-			class screen {};
-		};
-		class util
-		{
-			file = "\respawn\util";
-			class getMagazine {};
-			class getLoadedMagazines {};
-			class getCargo {};
+			class playerKilled {};
+			class loadPlayer {};
+			class createPlayer {};
+			class initialize {};
+			class isLoading {};
+			class updatePlayer {};
+			class isDisconnected {};
+			class clearInventory {};
 		};
 		class sql
 		{
 			file = "\respawn\sql_fnc";
 			class create {};
 			class delete {};
-			class exist {};
+			class existPlayer {};
 			class load {};
 			class update {};
 		};
