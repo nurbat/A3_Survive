@@ -1,23 +1,19 @@
 params["_player"];
-private["_position"];
+
 //Create player on SQL
 _player Call SRVRespawn_fnc_create;
-[_player, SRVRespawn_Equip] Call SRVTools_fnc_setPlayerEquip;//Add items to player
+[_player, SRVRespawn_cfg_Equip] Call SRVTools_fnc_setPlayerEquip;//Add items to player
 
-_position = (selectRandom SRVRespawn_spawnPoint) Call SRVTools_fnc_circle;
-if(SRVRespawn_spawnHeight > 0) then { _position set [2, SRVRespawn_spawnHeight]; };
+private _position = (selectRandom SRVRespawn_cfg_spawnPoint) Call SRVTools_fnc_circle;
+if(SRVRespawn_cfg_spawnHeight > 0) then { _position set [2, SRVRespawn_cfg_spawnHeight]; };
 _player setPosASL _position; //Set Position player
 
 //SET META
-_player setVariable ["UID",         getPlayerUID _player,   true];
-_player setVariable ["NAME",        name _player,           true];
-_player setVariable ["LAST_SAVE",   time,                   true];
-_player setVariable ["SESSION",     CALL SRVTools_fnc_UID,  true];
-_player setVariable ["isConnected", true,                   true];
+private _playerSession = Call SRVTools_fnc_UID;
+_player setVariable ["Session",     _playerSession,         true];
+[_playerSession, "UID",         getPlayerUID _player] Call SRVCore_fnc_setVar;
+[_playerSession, "NAME",        name _player        ] Call SRVCore_fnc_setVar;
+[_playerSession, "LAST_SAVE",   time                ] Call SRVCore_fnc_setVar;
 
-//SAVE DATA PLAYER
-[_player, _player getVariable["SESSION", ""]] Call SRVRespawn_fnc_update;
-//COMPLETE LOAD
-_player setVariable ["isLoaded", true, true];
-
-
+[_player, _playerSession] Call SRVRespawn_fnc_update; //SAVE
+_player setVariable ["initSpawn", false, true]; //Complete

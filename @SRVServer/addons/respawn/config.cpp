@@ -24,8 +24,6 @@ class CfgFunctions
 			class playerKilled 		{};
 			class loadPlayer 		{};
 			class createPlayer 		{};
-			class isLoading 		{};
-			class updatePlayer 		{};
 			class isDisconnected 	{};
 			class clearInventory 	{};
 		};
