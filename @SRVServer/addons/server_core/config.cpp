@@ -37,11 +37,13 @@ class CfgFunctions
 		class functions
 		{
 			file = "\server_core\functions";
-			class preInit {preInit = 1;};
-			class postInit {postInit = 1;};
-			class execCommand {};
-			class loadModule {};
-			class serverLock {};
+			class preInit 		{ preInit = 1; };
+			class postInit 		{ postInit = 1; };
+			class execCommand 	{};
+			class loadModule 	{};
+			class serverLock 	{};
+			class setVar		{};
+			class getVar		{};
 		};
 	};
 };

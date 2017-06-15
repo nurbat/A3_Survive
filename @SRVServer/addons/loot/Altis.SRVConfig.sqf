@@ -1,6 +1,6 @@
 SRVLoot_cfg_multipliePoint = 0;//Множитель шанса лута
-SRVLoot_cfg_countCopyPoint = 1;//Возможность копии итема на точке
-SRVLoot_cfg_countCopyOnBuild = 2;//Возможность копии итема в здании
+SRVLoot_cfg_countCopyPoint = 1;//Возможность повторения итема на точке
+SRVLoot_cfg_countCopyOnBuild = 2;//Возможность повторения итема в здании
 SRVLoot_cfg_countPoint = 5;//Max, Количество точек спавна ##1
 SRVLoot_cfg_countItem = 5;//Max || Колиство предметов на точке, кроме оружия ##2
 SRVLoot_cfg_countMagazine = [2, 3];//[Min, Max] || Количество патронов к оружию ##3

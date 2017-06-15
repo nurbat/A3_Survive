@@ -23,6 +23,7 @@ if (_unit getVariable ["UID", ""] != "") exitWith
         {
             if !(_this getVariable ["isConnected", false]) then
             {
+                diag_log "UPDATE PLAYER";
                 [_this, _this getVariable["SESSION", ""]] Call SRVRespawn_fnc_update;
                 deleteVehicle _this;
             };

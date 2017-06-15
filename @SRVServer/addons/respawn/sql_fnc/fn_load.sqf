@@ -7,8 +7,8 @@
  *
  */
  private["_fetchstr", "_fetch"];
-
- ["SELECT * FROM player WHERE", 
+([format["SELECT * FROM player WHERE uid = '%1'", getPlayerUID _this], [], 2, true] call SRVDB_fnc_queryBuild) select 0;
+ /*["SELECT * FROM player WHERE", 
  [
     ["uid", getPlayerUID _this]
- ], 2, true] call SRVDB_fnc_queryBuild select 0;
+ ], 2, true] call SRVDB_fnc_queryBuild select 0;*/

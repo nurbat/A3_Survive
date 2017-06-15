@@ -53,7 +53,7 @@ while { (count _spawnedPoint < _optionNowCountPoint) and (count _buildingNowPosi
         {
             _itemName = (selectRandom _itemsNow) select 0;
             if(count (_lootSpoot select { _x == _itemName }) > SRVLoot_cfg_countCopyPoint) throw false;
-            if(count (_buildingNow select { _x == _itemName }) > SRVLoot_cfg_countCopyOnBuild) throw false;
+            if(count (_buildingNowSpots select { _x == _itemName }) > SRVLoot_cfg_countCopyOnBuild) throw false;
             _lootSpoot pushBack _itemName;
             _typeItem = _itemName call SRVTools_fnc_itemType;
             switch (_typeItem) do

@@ -14,25 +14,20 @@ class CfgFunctions
 {
 	class SRVRespawn
 	{
-		class client
-		{
-			file = "\respawn\client";
-			class loadScreen {};
-			class connected {};
-		}
 		class fnc
 		{
 			file = "\respawn\fnc";
-			class preInit {preInit = 1;};
-			class postInit {postInit = 1;};
-			class playerKilled {};
-			class loadPlayer {};
-			class createPlayer {};
-			class initialize {};
-			class isLoading {};
-			class updatePlayer {};
-			class isDisconnected {};
-			class clearInventory {};
+			class preInit 			{ preInit = 1; };
+			class postInit 			{ postInit = 1; };
+			class startedRespawn	{};
+			class onRespawn 		{};
+			class playerKilled 		{};
+			class loadPlayer 		{};
+			class createPlayer 		{};
+			class isLoading 		{};
+			class updatePlayer 		{};
+			class isDisconnected 	{};
+			class clearInventory 	{};
 		};
 		class sql
 		{

@@ -1,6 +1,6 @@
 params["_player"];
-
 if !(isPlayer _player) exitWith { };
+
 if(Call SRVRespawn_fnc_isLoading) exitWith 
 { 
     _job = _player getVariable["isJob", ""];
