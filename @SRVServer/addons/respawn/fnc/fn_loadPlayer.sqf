@@ -13,7 +13,7 @@ _player setPosASL (_loadData select 4);
 [_player, (_loadData select 5)] Call SRVTools_fnc_setPointsDamage;
 
 [_player, (_loadData select 7)] Call SRVTools_fnc_setPlayerWeapons;
-if ((_loadData select 8) != "") then { _player selectWeapon (_loadData select 8); };
+if !((_loadData select 8) isEqualTo "") then { _player selectWeapon (_loadData select 8); };
 sleep 5;
 [_player, (_loadData select 6)] Call SRVTools_fnc_setPlayerCargo;
 
