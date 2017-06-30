@@ -9,11 +9,12 @@
  */
 params["_player", "_session"];
 
-if (_player getVariable ["UID", ""] == "") exitWith { }; //EXIT PLAYER DONT IS LOAD
+private _playerUID = [_player, "UID", ""] Call SRVCore_fnc_getVar;
+if (_playerUID == "") exitWith { }; //EXIT PLAYER DONT IS LOAD
 if (_player getVariable ["SESSION", ""] != _session) exitWith { }; //SESSION BREAK
 
 ["DELETE FROM player WHERE",
     [
-        ["uid", _player getVariable ["UID", ""]]
+        ["uid", _playerUID]
     ]
 ] call SRVDB_fnc_queryBuild;

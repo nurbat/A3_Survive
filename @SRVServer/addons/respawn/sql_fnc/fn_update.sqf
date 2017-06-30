@@ -9,8 +9,9 @@
  */
 params["_player", "_session"];
 
-if (_player getVariable ["UID", ""] == "") exitWith { }; //UID EMPTY
-if ((_player getVariable ["SESSION", ""]) != _session) exitWith { }; //SESSION BREAK
+private _playerUID = [_player, "UID", ""] Call SRVCore_fnc_getVar;
+if (_playerUID == "") exitWith { }; //UID EMPTY
+if ((_player getVariable ["Session", ""]) != _session) exitWith { }; //SESSION BREAK
 
 ["UPDATE player SET",
     [
@@ -21,7 +22,7 @@ if ((_player getVariable ["SESSION", ""]) != _session) exitWith { }; //SESSION B
         ["current_weapon",  currentWeapon _player],
         ["cargo",           _player Call SRVTools_fnc_getPlayerCargo],
         ["weapons",         _player Call SRVTools_fnc_getPlayerWeapons, ""],
-        ["WHERE uid",       _player getVariable ["UID", ""]]
+        ["WHERE uid",       _playerUID]
     ], 2
 ] Call SRVDB_fnc_queryBuild;
-diag_log format["OK UPDATE %1", _player getVariable ["UID", ""]];
+diag_log format["OK UPDATE %1", _playerUID];

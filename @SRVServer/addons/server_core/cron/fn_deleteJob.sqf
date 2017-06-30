@@ -7,9 +7,8 @@
  *
  */
 
-private["_index"];
-_index = SRVCore_CronKeys find _this;
-
+if !(_this != "") exitWith { false };
+private _index = SRVCore_CronKeys find _this;
 if(_index > -1) exitWith 
 {
     if(SRVCore_DebugLevel > 1) then { diag_log format["SRV-JOB: DELETE %1", _this]; };

@@ -1,5 +1,4 @@
- [SRVRespawn_cfg_posInit, {
-    (_this select 0) setPos _this;
+ [[], {
     if !(isPlayer player) exitWith { };
     if(player getVariable ["initSpawn", false]) exitWith { }; //Exit on initSpawn
     player setVariable ["initSpawn", true, true];

@@ -17,6 +17,6 @@ if ((_loadData select 11) != "") then { _player selectWeapon (_loadData select 1
 sleep 5;
 [_player, [(_loadData select 6), (_loadData select 7), (_loadData select 8), (_loadData select 9)]] Call SRVTools_fnc_setPlayerCargo;
 
-
+[_player, _playerSession] Call SRVRespawn_fnc_update;
 _player setVariable ["initSpawn", true, true];
 

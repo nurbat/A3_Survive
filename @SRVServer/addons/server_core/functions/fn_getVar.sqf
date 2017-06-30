@@ -1,6 +1,6 @@
 /*
  * Arguments:
- * 0: Object_Key <STRING>
+ * 0: Object_Key <STRING/OBJECT>
  * 1: Key <String>
  * 2: ValueDefault <TypeOf>
  *
@@ -9,8 +9,15 @@
  *
 */
 params["_objKey", "_varKey", "_varDefault"];
-private _getValues = missionNamespace getVariable [_objKey + "_key", []];
-private _setValues = missionNamespace getVariable [_objKey + "_val", []];
+
+//SETUP
+private _key = "";
+if(typeName _objKey == "STRING") then { _key = _objKey; };
+if(typeName _objKey == "OBJECT") then { _key = _objKey getVariable["Session", ""]; };
+if(_key == "") exitWith { "" };
+
+private _getValues = missionNamespace getVariable [_key + "_key", []];
+private _setValues = missionNamespace getVariable [_key + "_val", []];
 private _idValue = _getValues find _varKey;
 
 if(_idValue == -1) exitWith { _varDefault; };
