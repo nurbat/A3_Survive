@@ -33,6 +33,7 @@ if(SRVCore_DebugLevel > 2) then { diag_log format["SRV-JOB: START"]; };
 {
     if(time > _x) then 
     { 
+        if(SRVCore_DebugLevel > 2) then { diag_log format["SRV-JOB: EXEC COMMAND"]; };
         (SRVCore_CronJobs select _forEachIndex) Call BIS_fnc_call;
     };
     (SRVCore_CronKeys select _forEachIndex) Call SRVCore_fnc_deleteJob;//Удаляем выполненную задачу
