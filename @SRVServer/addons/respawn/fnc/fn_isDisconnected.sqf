@@ -23,12 +23,11 @@ if (_playerUID != "") exitWith
     _unit setVariable ["isSpawn",     false, true];
     _job = [
         (SRVRespawn_cfg_liveUnit * 60), 
-        [_unit, 
+        [[_unit, _playerNAME], 
         {
-            
-            if(SRVRespawn_cfg_DebugLevel > 0) then { diag_log format["[SRV-Respawn] %1 Disconnected complete.", _playerNAME]; };
-            [_this, _this getVariable["Session", ""]] Call SRVRespawn_fnc_update;
-            deleteVehicle _this;
+            if(SRVRespawn_cfg_DebugLevel > 0) then { diag_log format["[SRV-Respawn] %1 Disconnected complete.", (_this select 1)]; };
+            [(_this select 0), (_this select 0) getVariable["Session", ""]] Call SRVRespawn_fnc_update;
+            deleteVehicle (_this select 0);
         }]] Call SRVCore_fnc_createJob;
     [_unit, "QUIT_JOB", _job] Call SRVCore_fnc_setVar;
 };

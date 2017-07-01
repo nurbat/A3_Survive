@@ -44,6 +44,7 @@ class CfgFunctions
 			class serverLock 	{};
 			class setVar		{};
 			class getVar		{};
+			class clearVar		{};
 		};
 	};
 };

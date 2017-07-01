@@ -20,7 +20,7 @@ if(_playerSession != "") exitWith {
     {
         [_player, _playerSession] Call SRVRespawn_fnc_update;
         _player setVariable["Session", ""];
-        if(SRVRespawn_cfg_DebugLevel > 0) then { diag_log format["[SRV-Respawn] %1 Wrong Rejoin; New Join %2", _playerNAME, name _pla]; };
+        if(SRVRespawn_cfg_DebugLevel > 0) then { diag_log format["[SRV-Respawn] %1 Wrong Rejoin; New Join %2", _playerNAME, name _player]; };
         //Clear and (Create/Load)
         _player setPos SRVRespawn_cfg_posInit;
         _player Call SRVRespawn_fnc_clearInventory;
