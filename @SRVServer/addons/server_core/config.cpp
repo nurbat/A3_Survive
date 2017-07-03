@@ -34,6 +34,14 @@ class CfgFunctions
 			class runEvent {};
 			class createEvent {};
 		};
+		class command
+		{
+			file = "\server_core\functions\command";
+			class commandCheck		{};
+			class commandClientInit	{};
+			class commandOpen		{};
+			class serverCommand		{};
+		}
 		class functions
 		{
 			file = "\server_core\functions";

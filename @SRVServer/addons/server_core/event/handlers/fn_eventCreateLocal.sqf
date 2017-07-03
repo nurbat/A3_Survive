@@ -23,3 +23,19 @@
 		else { [_param, _code] remoteExec ["BIS_fnc_call", _client]; };
 	};
 }, _this] Call SRVCore_fnc_execCommand;
+
+//Command Console
+if(SRVCore_cfg_CommandEnable) then
+{
+	["InventoryOpened",     
+	{   
+		(_this select 0) Call SRVCore_fnc_commandCheck;    
+		(_this select 0) Call SRVCore_fnc_commandOpen;    
+		(_this select 0) Call SRVCore_fnc_commandClientInit;    
+	}]  Call SRVCore_fnc_createEvent;
+	
+	["HandleDisconnect",    
+	{   
+		(_this select 0) setVariable["chatCommandInit", false, true];            
+	}]  Call SRVCore_fnc_createEvent;
+};

@@ -29,6 +29,6 @@ if (_playerUID != "") exitWith
             [(_this select 0), (_this select 0) getVariable["Session", ""]] Call SRVRespawn_fnc_update;
             deleteVehicle (_this select 0);
         }]] Call SRVCore_fnc_createJob;
-    [_unit, "QUIT_JOB", _job] Call SRVCore_fnc_setVar;
+    [_playerSession, "QUIT_JOB", _job] Call SRVCore_fnc_setVar;
 };
 deleteVehicle _unit;

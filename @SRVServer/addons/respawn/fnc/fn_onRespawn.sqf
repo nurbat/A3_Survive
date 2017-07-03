@@ -7,8 +7,8 @@ if(_playerSession != "") exitWith {
     private _playerNAME = [_playerSession, "NAME", ""] Call SRVCore_fnc_getVar;
     
     //JOB
-    private _playerJob = [_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_getVar;
-    _playerJob Call SRVCore_fnc_deleteJob;
+    private _playerJOB = [_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_getVar;
+    _playerJOB Call SRVCore_fnc_deleteJob;
     [_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_setVar;
 
     //Player is current joining, skip loaded
