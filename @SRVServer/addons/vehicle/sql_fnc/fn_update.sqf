@@ -6,22 +6,22 @@
  * None
  *
  */
-params["_vehicleObject"];
+params["_vehicle"];
 
-if(_vehicleObject getVariable["UID", ""] == "") exitWith { };
+if(_vehicle getVariable["uid", ""] == "") exitWith { };
 
 ["UPDATE vehicle SET",
     [
-        ["name",        _vehicleOwner],
-        ["class",       typeOf _vehicleObject],
-        ["is_locked",   locked _vehicleObject],
-        ["fuel",        fuel _vehicleObject],
-        ["damage",      damage _vehicleObject],
-        ["hitpoints",   _vehicleObject Call SRVTools_fnc_getPointsDamage],
-        ["position",    (getPosATL _vehicleObject)],
-        ["direction",   [vectorDir _vehicleObject, vectorUp _vehicleObject]],
-        ["cargo",       _vehicleObject Call SRVTools_fnc_getVehicleCargo],
-        ["ammo",        _vehicleObject Call SRVTools_fnc_getVehicleAmmo],
-        ["WHERE uid",   _SRVVehicle_var_uid]
+        ["name",        _vehicle getVariable["owner", ""]],
+        ["class",       typeOf _vehicle],
+        ["is_locked",   locked _vehicle],
+        ["fuel",        fuel _vehicle],
+        ["damage",      damage _vehicle],
+        ["hitpoints",   _vehicle Call SRVTools_fnc_getPointsDamage],
+        ["position",    (getPosATL _vehicle)],
+        ["direction",   [vectorDir _vehicle, vectorUp _vehicle]],
+        ["cargo",       _vehicle Call SRVTools_fnc_getVehicleCargo],
+        ["ammo",        _vehicle Call SRVTools_fnc_getVehicleAmmo],
+        ["WHERE id",   _SRVVehicle_var_uid]
     ], 2
 ] Call SRVDB_fnc_queryBuild;

@@ -1,4 +1,22 @@
 CREATE TABLE `vehicle` (
+  `id` varchar(64) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `class` varchar(64) NOT NULL,
+  `is_locked` varchar(1) NOT NULL DEFAULT '0',
+  `fuel` varchar(10) NOT NULL DEFAULT '0',
+  `damage` varchar(10) NOT NULL DEFAULT '0',
+  `hitpoints` text,
+  `position` text,
+  `direction` text,
+  `cargo` text,
+  `ammo` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+/*OLD VERSION
+CREATE TABLE `vehicle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `class` varchar(64) NOT NULL,
@@ -19,4 +37,4 @@ CREATE TABLE `vehicle` (
   `vehicle_texture` text,
   `ammo` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/

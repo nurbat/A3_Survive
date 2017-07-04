@@ -7,12 +7,12 @@
  *
  */
 params ["_vehicleObject"];
-private _SRVVehicle_var_uid = (_vehicleObject getVariable["UID", ""]);
+private _SRVVehicle_var_uid = (_vehicleObject getVariable["uid", ""]);
 
 if(_SRVVehicle_var_uid == "") exitWith { };
 ["DELETE FROM vehicle WHERE",
     [
-        ["uid", _SRVVehicle_var_uid]
+        ["id", _SRVVehicle_var_uid]
     ]
 ] call SRVDB_fnc_queryBuild;
 

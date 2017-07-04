@@ -4,27 +4,25 @@
  * 1: Vehicle <OBJECT>
  *
  * Return Value:
- * 0: UID <STRING>
+ * None
  *
 */
-params ["_vehicleOwner", "_vehicleObject"];
+params ["_vehicle"];
 
-if(_vehicleObject getVariable["UID", ""] != "") exitWith { };
-private _SRVVehicle_var_uid = Call SRVTools_fnc_UID;
+if (_vehicle getVariable["uid", ""] isEqualTo "") exitWith { };
 
 ["INSERT INTO vehicle SET",
     [
-        ["name",        _vehicleOwner],
-        ["class",       typeOf _vehicleObject],
-        ["is_locked",   locked _vehicleObject],
-        ["fuel",        fuel _vehicleObject],
-        ["damage",      damage _vehicleObject],
-        ["cargo",       _vehicleObject Call SRVTools_fnc_getVehicleCargo],
-        ["hitpoints",   _vehicleObject Call SRVTools_fnc_getPointsDamage],
-        ["position",    (getPosATL _vehicleObject)],
-        ["direction",   [vectorDir _vehicleObject, vectorUp _vehicleObject]],
-        ["ammo",        _vehicleObject Call SRVTools_fnc_getVehicleAmmo],
-        ["uid",         _SRVVehicle_var_uid]
+        ["name",        _vehicle getVariable["owner", ""]],
+        ["class",       typeOf _vehicle],
+        ["is_locked",   locked _vehicle],
+        ["fuel",        fuel _vehicle],
+        ["damage",      damage _vehicle],
+        ["cargo",       _vehicle Call SRVTools_fnc_getVehicleCargo],
+        ["hitpoints",   _vehicle Call SRVTools_fnc_getPointsDamage],
+        ["position",    (getPosATL _vehicle)],
+        ["direction",   [vectorDir _vehicle, vectorUp _vehicle]],
+        ["ammo",        _vehicle Call SRVTools_fnc_getVehicleAmmo],
+        ["id",         _vehicle getVariable["uid", ""]]
     ]
 ] Call SRVDB_fnc_queryBuild;
-_SRVVehicle_var_uid;

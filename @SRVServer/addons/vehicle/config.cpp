@@ -2,9 +2,6 @@ class CfgPatches
 {
 	class SRVVehicle
 	{
-		projectName="Vehicle";
-		author="Hummer";
-		version="";
 		requiredAddons[] = { "SRVCore", "SRVTools", "SRVDB" };				
 	};
 };
@@ -16,17 +13,13 @@ class CfgFunctions
 		class fnc
 		{
 			file = "\vehicle\fnc";
-			class getVehicleTracker {};
-			class setVehicleTracker {};
-			class createNonPersistentVehicle {};
-			class createVehicle {};
-			class createPersistentVehicle {};
-			class postInit { postInit = 1; };
-			class preInit { preInit = 1; };
-			class loadVehicle { };
-			class spawnVehiclesRandom { };
-			class spawnVehiclesRoad { };
-			class spawnVehiclesLocation { };
+			class postInit 			{ postInit = 1; };
+			class preInit 			{ preInit = 1; };
+			class debugMarker 		{};
+			class loadVehicle 		{};
+			class createRandom 		{};
+			class createLocation 	{};
+			class createRoad {};
 		};
 		class sql_fnc
 		{
@@ -39,7 +32,10 @@ class CfgFunctions
 		class until
 		{
 			file = "\vehicle\until";
-			class vehicleGetHitPoints {};
+			class createObject			{};
+			class setPernament			{};
+			class vehicleTracked		{};
+			class setDamage				{};
 		};
 	};
 };

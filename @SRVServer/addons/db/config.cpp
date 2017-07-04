@@ -2,11 +2,7 @@ class CfgPatches
 {
 	class SRVDB
 	{
-		projectName="SQL";
-		author="Hummer";
-		version="";
 		requiredAddons[] = {};
-		units[] = {};
 	};
 };
 
