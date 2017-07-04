@@ -27,11 +27,11 @@
 //Command Console
 if(SRVCore_cfg_CommandEnable) then
 {
-	["InventoryOpened",     
+	["playerComplete",     
 	{   
-		(_this select 0) Call SRVCore_fnc_commandCheck;    
-		(_this select 0) Call SRVCore_fnc_commandOpen;    
-		(_this select 0) Call SRVCore_fnc_commandClientInit;    
+		_this Call SRVCore_fnc_commandCheck;    
+		_this Call SRVCore_fnc_commandOpen;    
+		_this Call SRVCore_fnc_commandClientInit;    
 	}]  Call SRVCore_fnc_createEvent;
 	
 	["HandleDisconnect",    

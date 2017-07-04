@@ -33,6 +33,7 @@ params ["_player"];
                     SRVLoot_var_buildingNow = _x;
                     if (time < SRVLoot_var_buildingNow getVariable ["lootTime", 0]) throw false;    //BREAK
                     if (isObjectHidden SRVLoot_var_buildingNow) throw false;  //BREAK
+                    //Удалить ( - [player]), если нужно что бы не обновлялся лут рядом с тобой
                     if (count (nearestObjects [getPos SRVLoot_var_buildingNow, (["CAManBase"]), 60] - [player]) > 0) throw false;    //BREAK
 
                     //Поиск здания

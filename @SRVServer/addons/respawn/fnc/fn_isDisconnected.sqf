@@ -21,6 +21,8 @@ if (_playerUID != "") exitWith
     _unit disableAI "CHECKVISIBLE";
     _unit setVariable ["isConnected", false, true];
     _unit setVariable ["isSpawn",     false, true];
+    (_unit getVariable["updateJob", ""]) Call SRVCore_fnc_deleteJob;
+    _unit setVariable ["updateJob",  "", true];
     _job = [
         (SRVRespawn_cfg_liveUnit * 60), 
         [[_unit, _playerNAME], 

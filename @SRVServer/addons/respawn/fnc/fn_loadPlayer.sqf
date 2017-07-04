@@ -18,5 +18,6 @@ sleep 5;
 [_player, (_loadData select 6)] Call SRVTools_fnc_setPlayerCargo;
 
 //[_player, _playerSession] Call SRVRespawn_fnc_update;
+[_player, "playerComplete"] Call SRVCore_fnc_runEvent;
 _player setVariable ["initSpawn", false, true];
 

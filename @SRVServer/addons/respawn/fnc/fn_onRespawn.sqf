@@ -7,8 +7,7 @@ if(_playerSession != "") exitWith {
     private _playerNAME = [_playerSession, "NAME", ""] Call SRVCore_fnc_getVar;
     
     //JOB
-    private _playerJOB = [_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_getVar;
-    _playerJOB Call SRVCore_fnc_deleteJob;
+    ([_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_getVar) Call SRVCore_fnc_deleteJob;
     [_playerSession, "QUIT_JOB", ""] Call SRVCore_fnc_setVar;
 
     //Player is current joining, skip loaded
@@ -16,7 +15,9 @@ if(_playerSession != "") exitWith {
     { 
         _player setVariable ["initSpawn", false, true];
         if(SRVRespawn_cfg_DebugLevel > 0) then { diag_log format["[SRV-Respawn] %1 Rejoin", name _player]; };
-    } else 
+        [_player, "playerComplete"] Call SRVCore_fnc_runEvent;
+    } 
+    else 
     {
         [_player, _playerSession] Call SRVRespawn_fnc_update;
         _player setVariable["Session", ""];

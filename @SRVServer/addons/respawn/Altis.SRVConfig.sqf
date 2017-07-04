@@ -3,6 +3,7 @@ SRVRespawn_cfg_DebugLevel = 3;
 SRVRespawn_cfg_liveUnit = 5; // 5 Min
 SRVRespawn_cfg_saveDelay = 300; // Seconds 60 * 5 Min = 300
 SRVRespawn_cfg_spawnHeight = 1000; //0 - disabled
+SRVRespawn_cfg_updateTimeout = 5;// 5 Min
 SRVRespawn_cfg_spawnPoint = [
 	[5091.411, 11198.178, 500],//Panachori
 	[9050.27, 11935.135, 500],//Zaros

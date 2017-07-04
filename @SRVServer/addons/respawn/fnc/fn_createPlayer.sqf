@@ -15,5 +15,6 @@ _player setVariable ["Session",     _playerSession,         true];
 [_playerSession, "NAME",        name _player        ] Call SRVCore_fnc_setVar;
 [_playerSession, "LAST_SAVE",   time                ] Call SRVCore_fnc_setVar;
 
+[_player, "playerComplete"] Call SRVCore_fnc_runEvent;
 [_player, _playerSession] Call SRVRespawn_fnc_update; //SAVE
 _player setVariable ["initSpawn", false, true]; //Complete
